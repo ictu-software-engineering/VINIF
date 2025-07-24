@@ -6,7 +6,15 @@
 
 ---
 
-## Slide 1: TỔNG QUAN DỰ ÁN
+## Slide 1: NỘI DUNG THUYẾT TRÌNH
+- Tính cấp thiết
+- Tính sáng tạo
+- Mục tiêu & Phương pháp
+- Kết quả dự kiến
+- Đội ngũ & năng lực
+- Dự toán
+
+## Slide 2: TỔNG QUAN DỰ ÁN
 
 ### 🎯 Mục tiêu chính
 Ứng dụng công nghệ số hiện đại để bảo tồn và phát huy giá trị văn hóa truyền thống của dân tộc La Chí, đồng thời phát triển du lịch cộng đồng bền vững tại tỉnh Hà Giang
@@ -19,7 +27,7 @@
 
 ---
 
-## Slide 2: TÍNH CẤP THIẾT CỦA DỰ ÁN
+## Slide 3: TÍNH CẤP THIẾT CỦA DỰ ÁN
 
 ### 🏛️ Phù hợp chính sách
 - ✅ **Chủ trương Đảng, Nhà nước** về bảo tồn văn hóa và chuyển đổi số
@@ -33,7 +41,7 @@
 
 ---
 
-## Slide 3: TÍNH SÁNG TẠO VÀ ĐỔI MỚI
+## Slide 4: TÍNH SÁNG TẠO VÀ ĐỔI MỚI
 
 ### 🚀 Những điểm đột phá
 
@@ -53,7 +61,7 @@
 
 ---
 
-## Slide 4: MỤC TIÊU DỰ ÁN
+## Slide 5: MỤC TIÊU DỰ ÁN
 
 ### 🎯 6 Mục tiêu cụ thể
 
@@ -71,7 +79,7 @@
 
 ---
 
-## Slide 5: NỘI DUNG HOẠT ĐỘNG
+## Slide 6: NỘI DUNG HOẠT ĐỘNG
 
 ### 📋 12 Hoạt động chính
 
@@ -95,7 +103,7 @@
 
 ---
 
-## Slide 6: PHƯƠNG PHÁP NGHIÊN CỨU
+## Slide 7: PHƯƠNG PHÁP NGHIÊN CỨU
 
 ### 🔬 Phương pháp đa ngành, liên ngành
 
@@ -115,7 +123,7 @@
 
 ---
 
-## Slide 7: KẾ HOẠCH THỰC HIỆN
+## Slide 8: KẾ HOẠCH THỰC HIỆN
 
 ### ⏰ 3 Giai đoạn chính
 
@@ -141,34 +149,32 @@
 
 ---
 
-## Slide 8: KẾT QUẢ DỰ KIẾN
+## Slide 9: KẾT QUẢ DỰ KIẾN
 
 ### 🏆 13 Sản phẩm cụ thể
 
-#### **Sản phẩm nghiên cứu (1-3)**
+#### **Sản phẩm nghiên cứu **
 1. **Báo cáo tổng hợp dự án** - Tổng hợp toàn bộ kết quả nghiên cứu
 2. **Báo cáo kiến nghị chính sách** - Đề xuất chính sách cụ thể
 3. **3 bài báo khoa học** - Công bố trên tạp chí uy tín
+4.  **Sách chuyên khảo** - "Ứng dụng công nghệ số trong bảo tồn văn hóa La Chí"
 
-#### **Sản phẩm công nghệ (4-6)**
-4. **Cơ sở dữ liệu số hóa** - Kho dữ liệu văn hóa La Chí đa phương tiện
-5. **Phần mềm hệ thống** - Ứng dụng quản lý thông tin văn hóa-du lịch
-6. **E-book song ngữ** - Ấn phẩm số Việt-Anh về văn hóa La Chí
+#### **Sản phẩm công nghệ **
+5. **Cơ sở dữ liệu số hóa** - Kho dữ liệu văn hóa La Chí đa phương tiện
+6. **Phần mềm hệ thống** - Ứng dụng quản lý thông tin văn hóa-du lịch
+7. **E-book song ngữ** - Ấn phẩm số Việt-Anh về văn hóa La Chí
 
 #### **Sản phẩm truyền thông (7-12)**
-7. **Fanpage Facebook** - Nền tảng truyền thông chính
-8. **Kho nội dung số cộng đồng** - Video, hình ảnh, câu chuyện
-9. **2 cuộc thi văn hóa** - "Văn hóa La Chí qua lăng kính trẻ" & "Người gìn giữ hồn La Chí"
-10. **5 lớp tập huấn** - Đào tạo kỹ năng cho cộng đồng
-11. **14 tin bài truyền thông** - Trên các nền tảng báo chí
-12. **Sự kiện tổng kết** - Truyền thông kết thúc dự án
-
-#### **Sản phẩm xuất bản (13)**
-13. **Sách chuyên khảo** - "Ứng dụng công nghệ số trong bảo tồn văn hóa La Chí"
+8. **Fanpage Facebook** - Nền tảng truyền thông chính
+9. **Kho nội dung số cộng đồng** - Video, hình ảnh, câu chuyện
+10. **2 cuộc thi văn hóa** - "Văn hóa La Chí qua lăng kính trẻ" & "Người gìn giữ hồn La Chí"
+11. **5 lớp tập huấn** - Đào tạo kỹ năng cho cộng đồng
+12. **14 tin bài truyền thông** - Trên các nền tảng báo chí
+13. **Sự kiện tổng kết** - Truyền thông kết thúc dự án
 
 ---
 
-## Slide 9: ĐỘI NGŨ THỰC HIỆN - TỔ CHỨC CHỦ TRÌ
+## Slide 10: ĐỘI NGŨ THỰC HIỆN - TỔ CHỨC CHỦ TRÌ
 
 ### 🏫 Đại học Thái Nguyên - Thế mạnh vượt trội
 
@@ -178,7 +184,7 @@
 - **Đội ngũ:** 3.691 CBGV (921 TS, 158 GS-PGS)
 - **Chất lượng:** 100% trường thành viên đạt kiểm định
 
-#### **Năng lực nghiên cứu xuất sắc**
+#### **Năng lực nghiên cứu**
 - **Đề tài cấp Nhà nước:** 123 đề tài (2014-2023)
 - **Đề tài cấp Bộ, tỉnh:** 247 đề tài
 - **Hợp tác quốc tế:** 144 đối tác trên các châu lục
@@ -191,9 +197,7 @@
 
 ---
 
-## Slide 10: ĐỘI NGŨ THỰC HIỆN - THÀNH VIÊN CHÍNH
-
-### 👥 16 Chuyên gia đầu ngành + 5 Nghệ nhân La Chí
+## Slide 11: ĐỘI NGŨ THỰC HIỆN - THÀNH VIÊN CHÍNH
 
 ### 👥 16 Chuyên gia đầu ngành + 5 Nghệ nhân La Chí
 
@@ -279,7 +283,7 @@
 
 ---
 
-## Slide 11: GIÁ TRỊ VÀ TÁC ĐỘNG DỰ ÁN
+## Slide 12: GIÁ TRỊ VÀ TÁC ĐỘNG DỰ ÁN
 
 ### 🌟 Tác động đa chiều
 
@@ -305,7 +309,7 @@
 
 ---
 
-## Slide 12: DỰ TOÁN VÀ PHÂN BỔ KINH PHÍ
+## Slide 13: DỰ TOÁN VÀ PHÂN BỔ KINH PHÍ
 
 ### 💰 Tổng kinh phí: 2.831.859.282 VNĐ
 
@@ -328,7 +332,7 @@
 
 ---
 
-## Slide 13: TÍNH KHẢ THI VÀ RỦI RO
+## Slide 14: TÍNH KHẢ THI VÀ RỦI RO
 
 ### ✅ Yếu tố đảm bảo thành công
 
@@ -355,7 +359,7 @@
 
 ---
 
-## Slide 14: ROADMAP VÀ TẦM NHÌN
+## Slide 15: ROADMAP VÀ TẦM NHÌN
 
 ### 🚀 Lộ trình phát triển dài hạn
 
@@ -379,7 +383,7 @@
 
 ---
 
-## Slide 15: KẾT LUẬN VÀ KIẾN NGHỊ
+## Slide 16: KẾT LUẬN VÀ KIẾN NGHỊ
 
 ### 🎯 Những điểm nổi bật của dự án
 
@@ -406,7 +410,7 @@
 
 ---
 
-## Slide 16: CẢM ƠN VÀ THẢO LUẬN
+## Slide 17: CẢM ƠN VÀ THẢO LUẬN
 
 ### 📞 Thông tin liên hệ
 
