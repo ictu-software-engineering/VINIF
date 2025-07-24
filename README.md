@@ -17,25 +17,25 @@
 ## Slide 2: TỔNG QUAN DỰ ÁN
 
 ### 🎯 Mục tiêu chính
-Ứng dụng công nghệ số hiện đại để bảo tồn và phát huy giá trị văn hóa truyền thống của dân tộc La Chí, gắn với phát triển du lịch cộng đồng bền vững tại tỉnh Hà Giang
+Ứng dụng công nghệ số hiện đại để bảo tồn và phát huy giá trị văn hóa truyền thống của dân tộc La Chí gắn với phát triển du lịch cộng đồng bền vững tại tỉnh Hà Giang
 
 ### 📊 Thông tin dự án
-- **Thời gian thực hiện:** 27 tháng (08/2025 - 10/2027)
+- **Thời gian thực hiện:** 24 tháng (10/2025 - 10/2027)
 - **Tổng kinh phí:** 2.831.859.282 VNĐ
-- **Đội ngũ thực hiện:** 16 thành viên + 5 nghệ nhân La Chí
-- **Địa điểm:** Tỉnh Hà Giang và Lào Cai
+- **Đội ngũ thực hiện:** 16 thành viên + 5 công tác viên (4 nghệ nhân La Chí, 1 chính quyền địa phương)
+- **Địa điểm:** Tỉnh Hà Giang
 
 ---
 
 ## Slide 3: TÍNH CẤP THIẾT CỦA DỰ ÁN
 
 ### 🏛️ Phù hợp chính sách
-- ✅ **Chủ trương Đảng, Nhà nước** về bảo tồn văn hóa và chuyển đổi số
-- ✅ **Chính sách địa phương** phát triển văn hóa, du lịch, công nghệ tỉnh Hà Giang
+- ✅ **Chủ trương Đảng, Nhà nước** về bảo tồn, phát huy giá trị văn hóa truyền thống và chuyển đổi số
+- ✅ **Chính sách địa phương** bảo tồn, phát huy văn hóa truyền thống, du lịch bền vững, phát triển công nghệ tỉnh Hà Giang
 - ✅ **Định hướng VINIF** về lưu giữ giá trị văn hóa, lịch sử
 
 ### ⚠️ Thách thức cấp bách
-- **Dân tộc La Chí:** Cộng đồng thiểu số đặc sắc nhưng dễ bị tổn thương
+- **Dân tộc La Chí:** Cộng đồng thiểu số có nhiều giá trị văn hóa đặc sắc nhưng dễ bị tổn thương
 - **Khoảng trống nghiên cứu:** Thiếu ứng dụng công nghệ số chuyên biệt
 - **Nhu cầu thực tiễn:** Yêu cầu từ chính quyền và cộng đồng địa phương
 
@@ -46,16 +46,13 @@
 ### 🚀 Những điểm đột phá
 
 #### **Lần đầu tiên tại Việt Nam**
-- Xây dựng mô hình bảo tồn văn hóa tích hợp công nghệ số dành riêng cho dân tộc La Chí
-- Tạo không gian văn hóa số cộng đồng với dữ liệu số hóa chuyên sâu
-
+- Xây dựng mô hình ứng dụng công nghệ số để bảo tồn, phát huy giá trị văn hóa truyền thống gắn với phát triển du lịch cộng đồng bền vững cho dân tộc La Chí
 #### **Phương pháp tiếp cận mới**
-- Quản trị văn hóa dựa trên dữ liệu thực nghiệm
-- Sự tham gia chủ động của cộng đồng trong bảo tồn
-- Kết nối bảo tồn với phát triển du lịch qua sản phẩm số
+- Xây dựng khung phân tích liên ngành có khả năng lý giải mối quan hệ giữa công nghệ, bảo tồn văn hóa và phát triển du lịch cộng đồng trong bối cảnh chuyển đổi số.
+- Kết nối bảo tồn văn hóa với phát triển sinh kế bền vững qua du lịch số và truyền thông nội sinh
 
 #### **Ứng dụng công nghệ tiên tiến**
-- Khung lý thuyết liên ngành hiện đại
+- Thiết kế và triển khai không gian văn hóa số tương tác với sự tham gia chủ động của cộng đồng
 - Chuỗi sản phẩm số và dữ liệu mở
 - Mô hình có thể nhân rộng cho các dân tộc thiểu số khác
 
@@ -65,10 +62,9 @@
 
 ### 🎯 6 Mục tiêu cụ thể
 
-1. **Cơ sở lý luận** - Làm rõ nền tảng khoa học về ứng dụng công nghệ số bảo tồn văn hóa La Chí
+1. **Cơ sở lý luận, thực tiễn** - Làm rõ cơ sở lý luận, thực tiễn về ứng dụng công nghệ số bảo tồn, phát huy văn hóa La Chí
 
-2. **Thực trạng văn hóa** - Nghiên cứu giá trị văn hóa vật thể, phi vật thể cần bảo tồn và phục dựng
-
+2. **Thực trạng văn hóa** - Nghiên cứu giá trị văn hóa vật thể, phi vật thể cần bảo tồn và phát huy
 3. **Đánh giá chính sách** - Phân tích hiệu quả các chính sách bảo tồn hiện tại
 
 4. **Định hướng mới** - Đề xuất chính sách ứng dụng công nghệ số gắn với du lịch bền vững
@@ -164,7 +160,7 @@
 6. **Phần mềm hệ thống** - Ứng dụng quản lý thông tin văn hóa-du lịch
 7. **E-book song ngữ** - Ấn phẩm số Việt-Anh về văn hóa La Chí
 
-#### **Sản phẩm truyền thông (7-12)**
+#### **Sản phẩm đào tạo, truyền thông (7-12)**
 8. **Fanpage Facebook** - Nền tảng truyền thông chính
 9. **Kho nội dung số cộng đồng** - Video, hình ảnh, câu chuyện
 10. **2 cuộc thi văn hóa** - "Văn hóa La Chí qua lăng kính trẻ" & "Người gìn giữ hồn La Chí"
@@ -182,7 +178,7 @@
 - **Thành lập:** 1994 - Đại học công lập đa lĩnh vực
 - **Cơ cấu:** 12 đơn vị đào tạo (7 trường ĐH, 2 phân hiệu, 3 đơn vị khác)
 - **Đội ngũ:** 3.691 CBGV (921 TS, 158 GS-PGS)
-- **Chất lượng:** 100% trường thành viên đạt kiểm định
+- **Chất lượng:** 100% trường thành viên đạt kiểm định cơ sở đào tạo
 
 #### **Năng lực nghiên cứu**
 - **Đề tài cấp Nhà nước:** 123 đề tài (2014-2023)
@@ -197,9 +193,9 @@
 
 ---
 
-## Slide 11: ĐỘI NGŨ THỰC HIỆN - THÀNH VIÊN CHÍNH
+## Slide 11: ĐỘI NGŨ THỰC HIỆN - THÀNH VIÊN CHÍNH, CỘNG TÁC VIÊN
 
-### 👥 16 Chuyên gia đầu ngành + 5 Nghệ nhân La Chí
+### 👥 16 Chuyên gia + 4 Nghệ nhân La Chí
 
 #### **Thành viên dự án (Phần 1)**
 
@@ -276,10 +272,11 @@
 - Tham gia nhiều đề tài cấp Bộ
 - Tác giả nghiên cứu truyền thống tự sự, thần thoại, tín ngưỡng DTTS
 
-#### **Cộng đồng địa phương**
-**5 Nghệ nhân La Chí** - Người thực hành di sản sống
+#### **Cộng tác viên**
+**4 Nghệ nhân La Chí** - Người thực hành di sản sống
 - Cung cấp tri thức bản địa xác thực
 - Đại diện tiếng nói cộng đồng
+- Đại diện chính quyền địa phương
 
 ---
 
@@ -364,7 +361,7 @@
 ### 🚀 Lộ trình phát triển dài hạn
 
 #### **Ngắn hạn (2025-2027) - Dự án hiện tại**
-- Hoàn thành 15 sản phẩm đề ra
+- Hoàn thành 13 sản phẩm đề ra
 - Tạo mô hình thí điểm thành công
 - Công bố kết quả nghiên cứu
 
@@ -415,11 +412,11 @@
 ### 📞 Thông tin liên hệ
 
 **TS. Nguyễn Thị Hải Anh** - Chủ nhiệm dự án  
-📧 Email: haianh@tnu.edu.vn  
-📱 Điện thoại: [Số điện thoại]  
+📧 Email: nguyenhaianh.sfl@tnu.edu.vn  
+📱 Điện thoại: 097 8662 484  
 
 **Đại học Thái Nguyên**  
-🏢 Địa chỉ: Tân Thịnh, TP. Thái Nguyên  
+🏢 Địa chỉ: Đường Bắc Sơn, Phường Phan Đình Phùng, tỉnh Thái Nguyên  
 🌐 Website: www.tnu.edu.vn  
 
 ---
