@@ -64,10 +64,10 @@
 
 1. **Cơ sở lý luận, thực tiễn** - Làm rõ cơ sở lý luận, thực tiễn về ứng dụng công nghệ số bảo tồn, phát huy văn hóa La Chí
 
-2. **Thực trạng văn hóa** - Nghiên cứu giá trị văn hóa vật thể, phi vật thể cần bảo tồn và phát huy
+2. **Thực trạng văn hóa** - Làm rõ thực trạng văn hóa cần bảo tồn và phát huy, dự đoán xu hướng biến đối
 3. **Đánh giá chính sách** - Phân tích hiệu quả các chính sách bảo tồn hiện tại
 
-4. **Định hướng mới** - Đề xuất chính sách ứng dụng công nghệ số gắn với du lịch bền vững
+4. **Định hướng mới** - Đề xuất chính sách ứng dụng công nghệ số để bảo tồn, phát huy gia trị văn hóa truyền thống gắn với du lịch cộng đồng bền vững
 
 5. **Mô hình ứng dụng** - Xây dựng mô hình dựa trên nhu cầu cộng đồng
 
@@ -80,7 +80,7 @@
 ### 📋 12 Hoạt động chính
 
 #### **Nghiên cứu cơ bản (1-3)**
-1. Cơ sở lý luận và thực tiễn ứng dụng công nghệ số
+1. Cơ sở lý luận và thực tiễn 
 2. Thực trạng bảo tồn văn hóa La Chí
 3. Đề xuất chính sách và giải pháp
 
@@ -276,11 +276,34 @@
 **4 Nghệ nhân La Chí** - Người thực hành di sản sống
 - Cung cấp tri thức bản địa xác thực
 - Đại diện tiếng nói cộng đồng
-- Đại diện chính quyền địa phương
+**1 đại diện chính quyền địa phương**
 
 ---
 
-## Slide 12: GIÁ TRỊ VÀ TÁC ĐỘNG DỰ ÁN
+## Slide 12: DỰ TOÁN VÀ PHÂN BỔ KINH PHÍ
+
+### 💰 Tổng kinh phí: 2.831.859.282 VNĐ
+
+#### **Cơ cấu chi phí**
+| Hạng mục | Số tiền (VNĐ) | Tỷ lệ |
+|----------|---------------|-------|
+| **Chi công lao động trực tiếp** | 828.800.000 | 29.27% |
+| **Thiết bị, máy móc, vật liệu** | 428.498.840 | 15.13% |
+| **Chi phí khác** | 1.574.560.442 | 55.60% |
+
+#### **Phân bổ theo tiến độ**
+- **Lần 1 (20.73%):** 587.010.147 VNĐ - Khởi động dự án
+- **Lần 2 (55.82%):** 1.580.428.987 VNĐ - Triển khai chính
+- **Lần 3 (23.45%):** 664.420.147 VNĐ - Hoàn thiện và tổng kết
+
+#### **Hiệu quả đầu tư**
+- **Chi phí hợp lý** cho một dự án đột phá về công nghệ
+- **Giá trị đầu ra cao** với 13 sản phẩm cụ thể
+- **Tác động dài hạn** cho cộng đồng và khoa học
+
+---
+
+## Slide 13: GIÁ TRỊ VÀ TÁC ĐỘNG DỰ ÁN
 
 ### 🌟 Tác động đa chiều
 
@@ -303,29 +326,6 @@
 - **Số hóa di sản** bằng công nghệ tiên tiến
 - **Xây dựng nền tảng** công nghệ phục vụ bảo tồn
 - **Chuyển giao công nghệ** cho cộng đồng
-
----
-
-## Slide 13: DỰ TOÁN VÀ PHÂN BỔ KINH PHÍ
-
-### 💰 Tổng kinh phí: 2.831.859.282 VNĐ
-
-#### **Cơ cấu chi phí**
-| Hạng mục | Số tiền (VNĐ) | Tỷ lệ |
-|----------|---------------|-------|
-| **Chi công lao động trực tiếp** | 828.800.000 | 29.27% |
-| **Thiết bị, máy móc, vật liệu** | 428.498.840 | 15.13% |
-| **Chi phí khác** | 1.574.560.442 | 55.60% |
-
-#### **Phân bổ theo tiến độ**
-- **Lần 1 (20.73%):** 587.010.147 VNĐ - Khởi động dự án
-- **Lần 2 (55.82%):** 1.580.428.987 VNĐ - Triển khai chính
-- **Lần 3 (23.45%):** 664.420.147 VNĐ - Hoàn thiện và tổng kết
-
-#### **Hiệu quả đầu tư**
-- **Chi phí hợp lý** cho một dự án đột phá về công nghệ
-- **Giá trị đầu ra cao** với 13 sản phẩm cụ thể
-- **Tác động dài hạn** cho cộng đồng và khoa học
 
 ---
 
