@@ -17,7 +17,7 @@
 ## Slide 2: TỔNG QUAN DỰ ÁN
 
 ### 🎯 Mục tiêu chính
-Ứng dụng công nghệ số hiện đại để bảo tồn và phát huy giá trị văn hóa truyền thống của dân tộc La Chí, đồng thời phát triển du lịch cộng đồng bền vững tại tỉnh Hà Giang
+Ứng dụng công nghệ số hiện đại để bảo tồn và phát huy giá trị văn hóa truyền thống của dân tộc La Chí, gắn với phát triển du lịch cộng đồng bền vững tại tỉnh Hà Giang
 
 ### 📊 Thông tin dự án
 - **Thời gian thực hiện:** 27 tháng (08/2025 - 10/2027)
