@@ -6,6 +6,14 @@
 
 ---
 
+## 🎥 Interactive Presentation
+
+**[View Live Presentation →](https://ictu-software-engineering.github.io/VINIF/index.html)**
+
+*Click the link above to view the interactive slideshow presentation of this project proposal. The presentation includes all 17 slides with professional styling, navigation controls, and complete project details.*
+
+---
+
 ## Slide 1: PRESENTATION CONTENT  
 - Rationale  
 - Innovation  
@@ -428,6 +436,32 @@ Leverage modern digital technologies to preserve and promote the traditional cul
 **Thai Nguyen University**  
 🏢 Address: Bac Son Street, Phan Dinh Phung Ward, Thai Nguyen Province, Vietnam  
 🌐 Website: www.tnu.edu.vn  
+
+---
+
+## 🌐 Online Presentation
+
+This project proposal includes an interactive HTML presentation that can be viewed online via GitHub Pages. The presentation features:
+
+- **17 Professional Slides** with complete project details
+- **Interactive Navigation** with keyboard controls (arrow keys, space bar)
+- **Responsive Design** that works on desktop, tablet, and mobile devices
+- **Professional Styling** with gradients, animations, and visual elements
+- **Institutional Branding** featuring TNU and VINIF logos
+
+### How to Access:
+1. **Live Presentation:** [Click here to view](https://your-github-username.github.io/your-repository-name/index.html)
+2. **Source Code:** Available in `index.html` file in this repository
+3. **Navigation:** Use arrow keys, space bar, or click the navigation buttons
+
+### Technical Features:
+- Built with HTML5, CSS3, and JavaScript
+- Full-screen presentation mode
+- Mobile-responsive design
+- Keyboard navigation support
+- Professional typography and layout
+
+*Note: Please replace `your-github-username` and `your-repository-name` in the URL above with your actual GitHub username and repository name.*
 
 ---
 
