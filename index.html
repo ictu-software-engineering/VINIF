@@ -1,1543 +1,1809 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Chi Cultural Heritage Preservation Project - VINIF Proposal</title>
+    <title>Dự án Bảo tồn Văn hóa La Chí - VINIF</title>
+    
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom styles -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #ff6b35;
+            --accent-color: #f7b731;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-color: #00b894;
+            --warning-color: #fdcb6e;
         }
 
-        body {
+        .reveal {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
         }
 
-        .presentation-container {
-            width: 100vw;
+        .reveal .slides section {
+            text-align: left;
+            padding: 15px;
             height: 100vh;
-            position: relative;
-        }
-
-        .slide {
-            background: white;
-            border-radius: 0;
-            box-shadow: none;
-            margin-bottom: 0;
-            width: 100vw;
-            height: 100vh;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            page-break-after: always;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .slide.active {
-            display: flex;
-        }
-
-        .slide-header {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            padding: 35px 40px;
-            text-align: center;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .slide-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .slide-number {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .slide-title {
-            font-size: 2.2em;
-            font-weight: bold;
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .slide-title-with-logos {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .title-logo {
-            height: 60px;
-            width: auto;
-            flex-shrink: 0;
-        }
-
-        .title-text {
-            font-size: 2.2em;
-            font-weight: bold;
-            text-align: center;
-            flex: 1;
-        }
-
-        .slide-content-two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            padding: 30px;
-            height: calc(100vh - 200px);
-            align-items: start;
-        }
-
-        .column-left, .column-right {
             display: flex;
             flex-direction: column;
-            gap: 25px;
-        }
-
-        .slide-subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
-
-        .slide-content {
-            padding: 40px 50px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+            justify-content: flex-start;
             overflow-y: auto;
-            min-height: 0;
-            justify-content: center;
         }
 
-        .navigation {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px 25px;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-button {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 14px;
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-transform: none;
+            font-weight: 600;
+            line-height: 1.2;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            min-width: 100px;
-            justify-content: center;
         }
 
-        .nav-button:hover {
-            background: linear-gradient(135deg, #5a6fd8, #6a4190);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .nav-button:disabled {
-            background: #95a5a6;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .slide-counter {
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 15px;
-            border-radius: 20px;
-            min-width: 80px;
-            justify-content: center;
-        }
-
-        .keyboard-hint {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 25px;
-            font-size: 12px;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .university-info {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 25px 0;
-            border-left: 5px solid #007bff;
-        }
-
-        .project-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
+        .reveal h1 {
+            font-size: 1.8em;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-            transform: translateY(0);
-            transition: transform 0.3s ease;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            justify-content: center;
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
+        .reveal h2 {
+            font-size: 1.4em;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
         }
 
-        .stat-number {
-            font-size: 2.8em;
-            font-weight: bold;
-            margin-bottom: 12px;
+        .reveal h3 {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+            margin-top: 15px;
+            margin-bottom: 10px;
         }
 
-        .stat-label {
-            font-size: 1em;
-            opacity: 0.9;
+        .reveal h4 {
+            font-size: 1.0em;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin: 10px 0 8px 0;
+        }
+
+        .reveal p, .reveal li {
+            font-size: 0.75em;
             line-height: 1.4;
+            color: var(--text-dark);
+            margin-bottom: 6px;
         }
 
-        .objectives-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+        .reveal ul, .reveal ol {
+            margin-left: 0;
+            padding-left: 15px;
         }
 
-        .objective-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 5px solid #28a745;
-            transition: all 0.3s ease;
+        .reveal li {
+            margin-bottom: 4px;
+            font-size: 0.75em;
         }
 
-        .objective-card:hover {
-            background: #e9ecef;
-            transform: translateX(5px);
-        }
-
-        .objective-number {
-            background: #28a745;
+        /* Header slide styling */
+        .title-slide {
+            text-align: center !important;
+            background: var(--bg-gradient);
             color: white;
+            padding: 20px !important;
+            justify-content: center;
+        }
+
+        .title-slide h1 {
+            color: white !important;
+            font-size: 2.0em;
+            margin-bottom: 15px;
+            -webkit-text-fill-color: white;
+        }
+
+        .title-slide .subtitle {
+            font-size: 1.0em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.3;
+        }
+
+        .title-slide .project-info {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        /* Logo styling for title slide */
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 0 50px;
+        }
+
+        .logo {
+            height: 80px;
+            max-width: 150px;
+            object-fit: contain;
+            background: rgba(255,255,255,0.9);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo.tnu-logo {
+            height: 90px;
+        }
+
+        .logo.vinif-logo {
+            height: 70px;
+        }
+
+        /* Icon styling */
+        .icon {
+            color: var(--secondary-color);
+            margin-right: 30px;
             width: 30px;
-            height: 30px;
+            display: inline-block;
+            text-align: center;
+            font-size: 1.0em;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        /* Additional icon spacing for different contexts */
+        .team-card .icon,
+        .feature-box .icon,
+        .timeline-title .icon {
+            margin-right: 12px;
+            width: 20px;
+            font-size: 0.9em;
+        }
+
+        .title-slide .icon {
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        /* Progress bar visualization */
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e6ed;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 10px;
+            transition: width 0.8s ease;
+        }
+
+        /* Chart containers */
+        .chart-container {
+            width: 100%;
+            height: 200px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        /* Pie chart visualization */
+        .pie-chart {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--primary-color) 0deg 105deg,
+                var(--secondary-color) 105deg 160deg,
+                var(--accent-color) 160deg 360deg
+            );
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pie-center {
+            width: 60px;
+            height: 60px;
+            background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 0.8em;
         }
 
-        .activities-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin: 30px 0;
-        }
-
-        .activity-group {
-            background: linear-gradient(145deg, #ffffff, #f1f3f4);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .activity-header {
-            color: #2c3e50;
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 3px solid #3498db;
-        }
-
-        .activity-list {
-            list-style: none;
-        }
-
-        .activity-list li {
-            padding: 10px 0;
-            padding-left: 30px;
+        /* Timeline enhanced */
+        .timeline-enhanced {
             position: relative;
-            font-size: 1em;
-            line-height: 1.5;
+            margin: 20px 0;
         }
 
-        .activity-list li::before {
-            content: '▶';
+        .timeline-enhanced::before {
+            content: '';
             position: absolute;
-            left: 0;
-            color: #3498db;
-            font-size: 0.8em;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-color);
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 18px;
-            margin: 20px 0;
-            overflow: visible;
+        .timeline-item-enhanced {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
         }
 
-        /* Fix for team slide content positioning */
-        .slide:nth-child(12) .slide-content {
-            justify-content: flex-start;
-            padding-top: 100px;
+        .timeline-item-enhanced::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--secondary-color);
         }
 
-        .team-member {
+        /* Metric cards */
+        .metric-card {
             background: white;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-top: 4px solid #e74c3c;
-            font-size: 0.85em;
-        }
-
-        .member-name {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 4px;
-            font-size: 0.95em;
-        }
-
-        .member-title {
-            color: #7f8c8d;
-            font-size: 0.8em;
-            margin-bottom: 6px;
-        }
-
-        .member-expertise {
-            font-size: 0.75em;
-            line-height: 1.3;
-            color: #5d6d7e;
-        }
-
-        .budget-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e6ed;
             border-radius: 10px;
-            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .budget-table th {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        /* Visual separator */
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            margin: 20px 0;
+            border-radius: 2px;
+        }
+
+        /* Stats cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 15px;
-            text-align: left;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .budget-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #ecf0f1;
-        }
-
-        .budget-table tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        .phase-title {
-            font-size: 1.1em;
+        .stat-number {
+            font-size: 1.5em;
             font-weight: bold;
-            margin-bottom: 12px;
-            text-align: center;
-            line-height: 1.3;
+            margin-bottom: 3px;
         }
 
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin: 30px 0;
-        }
-
-        .impact-card {
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .impact-scientific {
-            background: linear-gradient(135deg, #74b9ff, #0984e3);
-            color: white;
-        }
-
-        .impact-social {
-            background: linear-gradient(135deg, #55a3ff, #003d82);
-            color: white;
-        }
-
-        .impact-economic {
-            background: linear-gradient(135deg, #26de81, #20bf6b);
-            color: white;
-        }
-
-        .impact-technological {
-            background: linear-gradient(135deg, #fd79a8, #e84393);
-            color: white;
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .contact-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #ffecd2, #fcb69f);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 25px 0;
-            border-left: 5px solid #ff6b6b;
-        }
-
-        .quote {
-            font-style: italic;
-            font-size: 1.3em;
-            text-align: center;
-            color: #2c3e50;
-            margin: 30px 0;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            border-left: 5px solid #3498db;
-        }
-
-        .bullet-points {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .bullet-points li {
-            padding: 12px 0;
-            padding-left: 35px;
-            position: relative;
-            line-height: 1.6;
-            font-size: 1em;
-        }
-
-        .bullet-points li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-weight: bold;
-            font-size: 1.3em;
-        }
-
-        .methodology-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-
-        .method-card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            border-top: 5px solid #9b59b6;
-        }
-
-        .slide-content h2 {
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 1.7em;
-            color: #2c3e50;
-        }
-
-        .timeline-section {
-            margin: 35px 0 20px 0;
-            padding-top: 15px;
-            display: flex;
-            gap: 20px;
-            justify-content: space-between;
-            align-items: stretch;
-        }
-
-        .timeline-phase {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 20px;
-            margin: 0;
-            border-radius: 15px;
-            position: relative;
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
-            flex: 1;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .timeline-phase::before {
-            display: none;
-        }
-
-        .timeline-phase p {
-            margin: 10px 0;
-            font-size: 1em;
+        .stat-label {
+            font-size: 0.7em;
             opacity: 0.9;
         }
 
-        h3 {
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            color: #34495e;
+        /* Feature boxes */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
         }
 
-        h4 {
-            font-size: 1.2em;
-            margin-bottom: 12px;
-            color: #2c3e50;
+        .feature-box {
+            background: #f8f9fa;
+            padding: 15px 15px 15px 25px;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
         }
 
-        .method-title {
-            font-size: 1.4em;
+        .feature-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .feature-box p, .feature-box li {
+            font-size: 0.7em;
+            line-height: 1.3;
+        }
+
+        .feature-box ul {
+            margin: 0;
+            padding-left: 15px;
+        }
+
+        .feature-box ol {
+            margin: 0;
+            padding-left: 20px;
+            counter-reset: item;
+        }
+
+        .feature-box ol li {
+            display: block;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .feature-box ol li:before {
+            content: counter(item) ".";
+            counter-increment: item;
+            position: absolute;
+            left: -20px;
+            top: 0;
+            color: var(--primary-color);
             font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 18px;
+            font-size: 0.8em;
         }
 
-        @media print {
-            body {
-                background: white;
-            }
-            .slide {
-                margin-bottom: 0;
-                box-shadow: none;
-                page-break-after: always;
-            }
+        /* Progress indicators */
+        .progress-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 10px 0;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
         }
 
+        .progress-number {
+            background: var(--primary-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 0.8em;
+            flex-shrink: 0;
+        }
+
+        .progress-item div:last-child {
+            font-size: 0.75em;
+            line-height: 1.3;
+        }
+
+        /* Table styling */
+        .reveal table {
+            margin: 15px auto;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.7em;
+        }
+
+        .reveal table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            font-weight: 600;
+            font-size: 0.8em;
+        }
+
+        .reveal table td {
+            padding: 6px 8px;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.7em;
+        }
+
+        .reveal table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* Quote styling */
+        .quote {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+            text-align: center;
+            margin: 15px 0;
+            font-size: 0.8em;
+            line-height: 1.4;
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: var(--accent-color);
+            color: var(--text-dark);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+        .success-box {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .warning-box {
+            background: var(--warning-color);
+            color: var(--text-dark);
+        }
+
+        /* Team member cards */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .team-card {
+            background: white;
+            border: 1px solid #e0e6ed;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .team-name {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.8em;
+            margin-bottom: 4px;
+        }
+
+        .team-title {
+            color: var(--secondary-color);
+            font-size: 0.7em;
+            margin-bottom: 8px;
+        }
+
+        .team-card ul {
+            margin: 0;
+            padding-left: 15px;
+        }
+
+        .team-card li {
+            font-size: 0.65em;
+            margin-bottom: 3px;
+        }
+
+        /* Contact info */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .contact-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+        /* Risk management */
+        .risk-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .risk-section h4 {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .risk-section h3 {
+            font-size: 1.0em;
+            margin-bottom: 10px;
+        }
+
+        .risk-section ul, .risk-section p {
+            font-size: 0.7em;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .timeline-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid var(--primary-color);
+            border-radius: 5px;
+        }
+
+        .timeline-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 0.8em;
+        }
+
+        .timeline-item ul {
+            margin: 5px 0;
+            padding-left: 15px;
+        }
+
+        .timeline-item li {
+            font-size: 0.7em;
+            margin-bottom: 3px;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .slide-content {
-                padding: 20px;
+            .reveal .slides section {
+                padding: 10px;
             }
             
-            .slide-content-two-columns {
+            .stats-grid,
+            .feature-grid,
+            .team-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 20px;
+                gap: 10px;
             }
             
-            .slide-title {
-                font-size: 1.8em;
-            }
-            
-            .title-text {
-                font-size: 1.8em;
-            }
-            
-            .title-logo {
-                height: 40px;
-            }
-            
-            .project-stats,
-            .objectives-grid,
-            .activities-section,
-            .team-grid,
-            .impact-grid {
+            .risk-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .timeline-section {
-                flex-direction: column;
                 gap: 15px;
             }
-
-            .timeline-phase {
-                min-height: auto;
+            
+            .reveal h1 {
+                font-size: 1.5em;
             }
-
-            .navigation {
-                bottom: 15px;
-                padding: 10px 15px;
+            
+            .reveal h2 {
+                font-size: 1.2em;
             }
-
-            .nav-button {
-                padding: 10px 15px;
-                font-size: 12px;
-                min-width: 80px;
+            
+            .reveal h3 {
+                font-size: 1.0em;
             }
-
-            .keyboard-hint {
-                display: none;
+            
+            .reveal p, .reveal li {
+                font-size: 0.7em;
             }
+            
+            .title-slide .subtitle {
+                font-size: 0.9em;
+            }
+            
+            /* Icon adjustments for mobile */
+            .icon {
+                margin-right: 12px;
+                width: 25px;
+                font-size: 0.9em;
+            }
+            
+            .reveal h1, .reveal h2, .reveal h3 {
+                flex-wrap: wrap;
+                text-align: left;
+            }
+            
+            .reveal h1 {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            /* Logo responsive adjustments */
+            .logo-container {
+                padding: 0 20px;
+                margin: 15px 0;
+            }
+            
+            .logo {
+                height: 60px;
+                max-width: 120px;
+            }
+            
+            .logo.tnu-logo {
+                height: 65px;
+            }
+            
+            .logo.vinif-logo {
+                height: 55px;
+            }
+            
+            /* Feature box adjustments for mobile */
+            .feature-box {
+                padding: 12px 12px 12px 22px;
+            }
+            
+            .feature-box ol {
+                padding-left: 18px;
+            }
+            
+            .feature-box ol li:before {
+                left: -18px;
+                font-size: 0.7em;
+            }
+        }
+
+        /* Additional content overflow fix */
+        .content-wrapper {
+            max-height: 90vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .content-wrapper::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .content-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .content-wrapper::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 2px;
         }
     </style>
-    <script>
-        let currentSlide = 0;
-        const totalSlides = 17;
-
-        function showSlide(n) {
-            const slides = document.querySelectorAll('.slide');
-            
-            // Hide all slides
-            slides.forEach(slide => slide.classList.remove('active'));
-            
-            // Show current slide
-            if (slides[n]) {
-                slides[n].classList.add('active');
-            }
-            
-            // Update navigation
-            updateNavigation();
-        }
-
-        function nextSlide() {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                showSlide(currentSlide);
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                showSlide(currentSlide);
-            }
-        }
-
-        function updateNavigation() {
-            const prevButton = document.getElementById('prevButton');
-            const nextButton = document.getElementById('nextButton');
-            const slideCounter = document.getElementById('slideCounter');
-            
-            // Update button states
-            prevButton.disabled = currentSlide === 0;
-            nextButton.disabled = currentSlide === totalSlides - 1;
-            
-            // Update counter
-            slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            switch(e.key) {
-                case 'ArrowRight':
-                case ' ':
-                case 'Enter':
-                    e.preventDefault();
-                    nextSlide();
-                    break;
-                case 'ArrowLeft':
-                case 'Backspace':
-                    e.preventDefault();
-                    prevSlide();
-                    break;
-                case 'Home':
-                    e.preventDefault();
-                    currentSlide = 0;
-                    showSlide(currentSlide);
-                    break;
-                case 'End':
-                    e.preventDefault();
-                    currentSlide = totalSlides - 1;
-                    showSlide(currentSlide);
-                    break;
-            }
-        });
-
-        // Initialize presentation
-        document.addEventListener('DOMContentLoaded', function() {
-            showSlide(0);
-        });
-    </script>
 </head>
+
 <body>
-    <div class="presentation-container">
-        
-        <!-- Navigation Controls -->
-        <div class="navigation">
-            <button class="nav-button" id="prevButton" onclick="prevSlide()">
-                <span>◀</span> Previous
-            </button>
-            <div class="slide-counter" id="slideCounter">1 / 17</div>
-            <button class="nav-button" id="nextButton" onclick="nextSlide()">
-                Next <span>▶</span>
-            </button>
-        </div>
-
-        <!-- Keyboard Hint -->
-        <div class="keyboard-hint">
-            Use ← → arrow keys or space to navigate
-        </div>>
-        <!-- Slide 1: Title Slide -->
-        <div class="slide active">
-            <div class="slide-header">
-                <div class="slide-number">01/17</div>
-                <div class="slide-title-with-logos">
-                    <img src="TNU_LOGO.png" alt="Thai Nguyen University" class="title-logo">
-                    <div class="title-text">PRESERVATION OF CULTURAL AND HISTORICAL VALUES</div>
-                    <img src="VINIF_LOGO.png" alt="VINIF Foundation" class="title-logo">
-                </div>
-                <div class="slide-subtitle">Applying Digital Technology to Preserve and Promote the Traditional Cultural Heritage of the La Chi Ethnic Group in Association with Sustainable Community-Based Tourism in Ha Giang Province</div>
-            </div>
-            <div class="slide-content-two-columns">
-                <div class="column-left">
-                    <div class="university-info">
-                        <h3>🏛️ Implementing Institution & Project Overview</h3>
-                        <p><strong>Lead Institution:</strong> Thai Nguyen University</p>
-                        <p><strong>Faculty:</strong> School of Foreign Languages</p>
-                        <p><strong>Project Director:</strong> Dr. Nguyen Thi Hai Anh</p>
-                        <p><strong>Contact:</strong> nguyenhaianh.sfl@tnu.edu.vn | +84 97 8662 484</p>
-                        <br>
-                        <p><strong>Timeline:</strong> 24 months (October 2025 – October 2027)</p>
-                        <p><strong>Total Budget:</strong> VND 2,831,859,282</p>
-                        <p><strong>Location:</strong> Ha Giang Province</p>
-                        <p><strong>Target Community:</strong> La Chi Ethnic Group</p>
-                    </div>
-                    
-                   
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Title Slide -->
+            <section class="title-slide">
+                <!-- Logo container -->
+                <div class="logo-container">
+                    <img src="TNU_LOGO.png" alt="Logo Đại học Thái Nguyên" class="logo tnu-logo">
+                    <img src="VINIF_LOGO.png" alt="Logo VINIF" class="logo vinif-logo">
                 </div>
                 
-                <div class="column-right">
-                    <div class="highlight-box">
-                        <h3>📋 Presentation Content</h3>
-                        <ul class="bullet-points">
-                            <li>Project Rationale & Background</li>
-                            <li>Innovation & Creativity</li>
-                            <li>Objectives & Methodology</li>
-                            <li>Implementation Plan & Timeline</li>
-                            <li>Expected Outcomes & Impact</li>
-                            <li>Team Competence & Budget</li>
-                        </ul>
-                    </div>
-                    
-                   
+                <h1>PROJECT PROPOSAL: PRESERVATION OF CULTURAL AND HISTORICAL VALUES</h1>
+                <div class="subtitle">
+                    Application of digital technology in preserving and promoting the traditional cultural values of the La Chi ethnic group associated with sustainable community tourism in Ha Giang province
                 </div>
-            </div>
-        </div>
+                <div class="project-info">
 
-        <!-- Slide 2: Project Overview -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">02/17</div>
-                <div class="slide-title">PROJECT OVERVIEW</div>
-            </div>
-            <div class="slide-content">
-                <div class="quote">
-                    🎯 <strong>Primary Objective:</strong> Leverage modern digital technologies to preserve and promote the traditional cultural values of the La Chi ethnic group in alignment with sustainable community-based tourism development in Ha Giang Province.
+                    <p><strong>Lead Institution:</strong> Thai Nguyen University</p>
+                    <p><strong>Project Leader:</strong> Dr. Nguyen Thi Hai Anh</p>
                 </div>
+            </section>
+
+            <!-- Slide 1: Nội dung chính -->
+            <section>
+                <h2><i class="fas fa-list icon"></i>MAIN PRESENTATION</h2>
                 
-                <div class="project-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">24</div>
-                        <div class="stat-label">Months Duration<br>(Oct 2025 – Oct 2027)</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">2.83B</div>
-                        <div class="stat-label">VND Total Budget</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">21</div>
-                        <div class="stat-label">Team Members<br>(16 core + 5 collaborators)</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">Ha Giang</div>
-                        <div class="stat-label">Project Location<br>Province</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 3: Project Rationale -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">03/17</div>
-                <div class="slide-title">PROJECT RATIONALE</div>
-            </div>
-            <div class="slide-content">
-                <div class="activities-section">
-                    <div class="activity-group">
-                        <div class="activity-header">🏛️ Policy Alignment</div>
-                        <ul class="bullet-points">
-                            <li><strong>National and Party Guidelines</strong> on preserving traditional cultural values and promoting digital transformation</li>
-                            <li><strong>Local Policies</strong> supporting cultural preservation, sustainable tourism, and technological advancement in Ha Giang Province</li>
-                            <li><strong>VINIF Orientation</strong> toward safeguarding cultural and historical heritage</li>
-                        </ul>
+                <h3><i class="fas fa-book-open icon"></i> Core Content</h3>
+                
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4><i class="fas fa-exclamation-triangle icon"></i>Rationale</h4>
+                        <p>Alignment with the orientation of preserving and safeguarding cultural and historical values</p>
                     </div>
                     
-                    <div class="activity-group">
-                        <div class="activity-header">⚠️ Pressing Challenges</div>
-                        <ul class="bullet-points">
-                            <li><strong>La Chi Ethnic Group:</strong> A minority community with rich yet vulnerable cultural assets</li>
-                            <li><strong>Research Gap:</strong> Lack of specialized digital technology applications</li>
-                            <li><strong>Practical Demand:</strong> Concrete needs from local authorities and communities</li>
-                        </ul>
+                    <div class="feature-box">
+                        <h4><i class="fas fa-lightbulb icon"></i>Innovation</h4>
+                        <p>The novelty and originality of the research</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-bullseye icon"></i>Objectives & Methods</h4>
+                        <p>Objectives, content; methods and implementation plan are appropriate</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-trophy icon"></i>Expected Outcomes</h4>
+                        <p>Expected outcomes and the value of the project results</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-users icon"></i>Team & Capacity</h4>
+                        <p>Experience and capacity of the project leader, members, and the leading organization</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-calculator icon"></i>Budget</h4>
+                        <p>Detailed budget allocation and financial plan</p>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Slide 4: Innovation and Creativity -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">04/17</div>
-                <div class="slide-title">INNOVATION AND CREATIVITY</div>
-            </div>
-            <div class="slide-content">
-                <h2>🚀 Breakthrough Highlights</h2>
+                <div class="section-divider"></div>
                 
                 <div class="highlight-box">
-                    <h3>First of Its Kind in Vietnam</h3>
-                    <p>Development of a digital technology-based model for preserving and promoting the cultural heritage of the La Chi ethnic group, integrated with sustainable community-based tourism.</p>
+                    <strong>A pioneering project in the preservation of ethnic minority cultures through digital technology</strong>
                 </div>
+            </section>
+
+            <!-- Slide 2: Tổng quan dự án -->
+            <section>
+                <h2><i class="fas fa-bullseye icon"></i>PROJECT OVERVIEW</h2>
                 
-                <div class="activities-section">
-                    <div class="activity-group">
-                        <div class="activity-header">Novel Approach</div>
-                        <ul class="bullet-points">
-                            <li>Establishment of an interdisciplinary analytical framework to elucidate the interconnection between technology, cultural preservation, and community-based tourism</li>
-                            <li>Linking cultural heritage preservation with sustainable livelihood development through digital tourism</li>
+                <h3><i class="fas fa-target icon"></i>Main Objectives</h3>
+                <div class="highlight-box">
+                    Leverage modern digital technologies to preserve and promote the traditional cultural values of the La Chi ethnic group in alignment with sustainable community-based tourism development in Ha Giang Province.
+                </div>
+
+                <h3><i class="fas fa-info-circle icon"></i>Project Information</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Months</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.83</div>
+                        <div class="stat-label">Billion VND</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">16 Core</div>
+                        <div class="stat-label">5 collaborators</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Location</div>
+                        <div class="stat-label">Ha Giang Province</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: Tính cấp thiết -->
+            <section>
+                <h2><i class="fas fa-exclamation-triangle icon"></i> PROJECT RATIONALE</h2>
+                
+                <h3><i class="fas fa-balance-scale icon"></i>Policy Alignment</h3>
+                <div class="feature-grid">
+                    <div class="feature-box success-box">
+                        <h4>National and Party Guidelines</h4>
+                        <p>Preservation of culture and digital transformation</p>
+                    </div>
+                    <div class="feature-box success-box">
+                        <h4>Local Policies</h4>
+                        <p>Development of culture, tourism, and technology in Ha Giang Province</p>
+                    </div>
+                    <div class="feature-box success-box">
+                        <h4>VINIF Orientation</h4>
+                        <p>Toward safeguarding cultural and historical heritage</p>
+                    </div>
+                </div>
+
+                <h3><i class="fas fa-exclamation-circle icon"></i>Pressing Challenges</h3>
+                <ul>
+                    <li><strong>La Chi Ethnic Group:</strong> A minority community with rich yet vulnerable cultural assets</li>
+                    <li><strong>Research Gap:</strong> Lack of specialized digital technology applications</li>
+                    <li><strong>Practical Demand:</strong> Concrete needs from local authorities and communities</li>
+                </ul>
+              
+            </section>
+
+
+           
+
+
+
+
+            <!-- Slide 4: Tính sáng tạo -->
+            <section>
+                <h2><i class="fas fa-rocket icon"></i>INNOVATION AND CREATIVITY</h2>
+
+                <h3><i class="fas fa-star icon"></i>Breakthrough Highlights</h3>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4>First of Its Kind in Vietnam</h4>
+                        <ul>
+                            <li>Development of a digital technology-based model for preserving and promoting the cultural heritage of the La Chi ethnic group</li>
+                            <li>Creation of a community-based digital cultural space with in-depth data</li>
                         </ul>
                     </div>
-                    
-                    <div class="activity-group">
-                        <div class="activity-header">Cutting-Edge Technology</div>
-                        <ul class="bullet-points">
+                    <div class="feature-box">
+                        <h4>Novel Approach</h4>
+                        <ul>
+                            <li>Establishment of an interdisciplinary analytical framework to elucidate the interconnection between technology, cultural preservation, and community-based tourism in the context of digital transformation.</li>
+                            <li>Linking cultural heritage preservation with sustainable livelihood development through digital tourism and endogenous communication strategies.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-box">
+                        <h4>Cutting-Edge Technology Application</h4>
+                        <ul>
                             <li>Design and implementation of an interactive digital cultural space with active community participation</li>
                             <li>A suite of digital products and open-access data</li>
                             <li>A scalable model adaptable to other ethnic minority communities</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        
+            <!-- Slide 5: Mục tiêu dự án -->
+            <section>
+                <h2><i class="fas fa-bullseye icon"></i>PROJECT OBJECTIVES</h2>
 
-        <!-- Slide 5: Project Objectives -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">05/17</div>
-                <div class="slide-title">PROJECT OBJECTIVES</div>
-            </div>
-            <div class="slide-content">
-                <h2>🎯 Six Specific Objectives</h2>
-                
-                <div class="objectives-grid">
-                    <div class="objective-card">
-                        <div class="objective-number">1</div>
-                        <h4>Theoretical and Practical Foundations</h4>
-                        <p>Clarify the theoretical and empirical basis for applying digital technology in preserving and promoting La Chi cultural heritage.</p>
+                <h3><i class="fas fa-list-ol icon"></i>6 Specific Objectives</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <div class="progress-item">
+                            <div class="progress-number">1</div>
+                            <div>
+                                <strong>Theoretical Foundations</strong><br>
+                                Clarify the scientific basis for applying digital technology in preserving La Chi cultural heritage
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-number">2</div>
+                            <div>
+                                <strong>Cultural Status Assessment</strong><br>
+                                Identify the current state of cultural elements requiring preservation and promotion, and forecast future transformation trends.
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-number">3</div>
+                            <div>
+                                <strong>Policy Evaluation</strong><br>
+                                Analyze the effectiveness of existing cultural preservation policies.
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="objective-card">
-                        <div class="objective-number">2</div>
-                        <h4>Cultural Status Assessment</h4>
-                        <p>Identify the current state of cultural elements requiring preservation and promotion, and forecast future transformation trends.</p>
-                    </div>
-                    
-                    <div class="objective-card">
-                        <div class="objective-number">3</div>
-                        <h4>Policy Evaluation</h4>
-                        <p>Analyze the effectiveness of existing cultural preservation policies.</p>
-                    </div>
-                    
-                    <div class="objective-card">
-                        <div class="objective-number">4</div>
-                        <h4>New Policy Directions</h4>
-                        <p>Propose policy recommendations for applying digital technology to preserve and promote traditional cultural values in tandem with sustainable community-based tourism.</p>
-                    </div>
-                    
-                    <div class="objective-card">
-                        <div class="objective-number">5</div>
-                        <h4>Application Model</h4>
-                        <p>Develop a community-centered application model based on actual local needs.</p>
-                    </div>
-                    
-                    <div class="objective-card">
-                        <div class="objective-number">6</div>
-                        <h4>Action Program</h4>
-                        <p>Design concrete activities to implement digital technologies effectively.</p>
+                    <div>
+                        <div class="progress-item">
+                            <div class="progress-number">4</div>
+                            <div>
+                                <strong>New Policy Directions</strong><br>
+                                Propose policy recommendations for applying digital technology to preserve and promote traditional cultural values in tandem with sustainable community-based tourism.
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-number">5</div>
+                            <div>
+                                <strong>Application Model</strong><br>
+                                Develop a community-centered application model based on actual local needs.
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-number">6</div>
+                            <div>
+                                <strong>Action Program</strong><br>
+                                Design concrete activities to implement digital technologies effectively.
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Slide 6: Project Activities -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">06/17</div>
-                <div class="slide-title">PROJECT ACTIVITIES</div>
-            </div>
-            <div class="slide-content">
-                <h2>📋 12 Core Activities</h2>
+                <div class="section-divider"></div>
                 
-                <div class="activities-section">
-                    <div class="activity-group">
-                        <div class="activity-header">Fundamental Research (1–3)</div>
-                        <ul class="activity-list">
-                            <li>Theoretical and practical foundations</li>
-                            <li>Assessment of La Chi cultural preservation status</li>
+                <div class="highlight-box">
+                    <strong>All 6 objectives aim to create a comprehensive cultural preservation ecosystem</strong>
+                </div>
+            </section>
+
+            <!-- Slide 6: Nội dung hoạt động -->
+            <section>
+                <h2><i class="fas fa-tasks icon"></i>PROJECT ACTIVITIES</h2>
+                
+                <h3><i class="fas fa-list-alt icon"></i>12 Core Activities</h3>
+                
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4>Fundamental Research (1-3)</h4>
+                        <ol>
+                            <li>Theoretical and practical foundations for applying digital technology</li>
+                            <li>Current status of La Chi cultural preservation</li>
                             <li>Policy and solution proposals</li>
-                        </ul>
+                        </ol>
                     </div>
                     
-                    <div class="activity-group">
-                        <div class="activity-header">Digitization and Tech Development (4–7)</div>
-                        <ul class="activity-list">
-                            <li>Workshops, seminars, and field surveys</li>
+                    <div class="feature-box">
+                        <h4>Digitization and Technological Development (4-7)</h4>
+                        <ol start="4">
+                            <li>Workshop, seminars, and field surveys</li>
                             <li>Development of a multimedia digital database</li>
                             <li>Information system software development</li>
                             <li>Compilation of bilingual (Vietnamese–English) digital publications</li>
-                        </ul>
+                        </ol>
                     </div>
                     
-                    <div class="activity-group">
-                        <div class="activity-header">Application and Dissemination (8–12)</div>
-                        <ul class="activity-list">
+                    <div class="feature-box">
+                        <h4>Application and Dissemination (8-12)</h4>
+                        <ol start="8">
                             <li>Community training workshops</li>
                             <li>Creation of Facebook fanpage and social media platforms</li>
-                            <li>"Colors of La Chi" cultural contest</li>
+                            <li>“Colors of La Chi” cultural contest</li>
                             <li>Project communication and outreach</li>
                             <li>Compilation of an academic monograph</li>
-                        </ul>
+                        </ol>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Slide 7: Research Methodology -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">07/17</div>
-                <div class="slide-title">RESEARCH METHODOLOGY</div>
-            </div>
-            <div class="slide-content">
-                <h2>🔬 Multidisciplinary and Interdisciplinary Approach</h2>
+            </section>
+                       <!-- Slide 7: Phương pháp nghiên cứu -->
+            <section>
+                <h2><i class="fas fa-microscope icon"></i>RESEARCH METHODOLOGY</h2>
                 
-                <div class="methodology-grid">
-                    <div class="method-card">
-                        <div class="method-title">Qualitative Research</div>
-                        <ul class="bullet-points">
-                            <li><strong>Literature Review</strong> – Systematic analysis of related studies</li>
-                            <li><strong>Ethnographic Fieldwork</strong> – In-depth, on-site exploration of La Chi cultural practices</li>
-                            <li><strong>Expert Consultation</strong> – Gathering insights from leading specialists</li>
+                <h3><i class="fas fa-project-diagram icon"></i>Multidisciplinary and Interdisciplinary Approach</h3>
+                
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4>Qualitative Research</h4>
+                        <ul>
+                            <li><strong>Literature Review</strong> - Systematic analysis of related studies</li>
+                            <li><strong>Ethnographic Fieldwork</strong> - In-depth, on-site exploration of La Chi cultural practices</li>
+                            <li><strong>Expert Consultation</strong> - Gathering insights from leading specialists</li>
                         </ul>
                     </div>
                     
-                    <div class="method-card">
-                        <div class="method-title">Quantitative Research</div>
-                        <ul class="bullet-points">
-                            <li><strong>Questionnaire Surveys</strong> – Data collection from the La Chi community</li>
-                            <li><strong>Statistical Analysis</strong> – Data processing using specialized software</li>
+                    <div class="feature-box">
+                        <h4>Quantitative Research</h4>
+                        <ul>
+                            <li><strong>Questionnaire Surveys</strong> - Data collection from the La Chi community</li>
+                            <li><strong>Statistical Analysis</strong> - Data processing using specialized software</li>
                         </ul>
                     </div>
                     
-                    <div class="method-card">
-                        <div class="method-title">Participatory Methods</div>
-                        <ul class="bullet-points">
-                            <li><strong>Participatory Rapid Appraisal (PRA)</strong> – Community engagement in evaluation</li>
-                            <li><strong>SWOT Analysis</strong> – Assessing strengths, weaknesses, opportunities, and threats</li>
-                            <li><strong>Comparative Analysis</strong> – Benchmarking against similar models</li>
+                    <div class="feature-box">
+                        <h4>Participatory Methods</h4>
+                        <ul>
+                            <li><strong>Participatory Rapid Appraisal (PRA)</strong> - Community engagement in evaluation</li>
+                            <li><strong>SWOT Analysis</strong> - Assessing strengths, weaknesses, opportunities, and threats</li>
+                            <li><strong>Comparative Analysis</strong> - Benchmarking against similar models</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+           
 
-        <!-- Slide 8: Implementation Plan -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">08/17</div>
-                <div class="slide-title">IMPLEMENTATION PLAN</div>
-            </div>
-            <div class="slide-content">
-                <h2>⏰ Three Main Phases</h2>
-                
-                <div class="timeline-section">
-                    <div class="timeline-phase">
-                        <div class="phase-title">🔍 Phase 1: Foundation (Aug 2025 – Jul 2026)</div>
-                        <p><strong>Investigation and Baseline Development</strong></p>
-                        <ul class="bullet-points">
+
+
+
+            <!-- Slide 8: Kế hoạch thực hiện -->
+            <section>
+                <h2><i class="fas fa-calendar-alt icon"></i>IMPLEMENTATION PLAN</h2>
+
+                <h3><i class="fas fa-clock icon"></i>Three Main Phases</h3>
+
+                <div class="timeline-enhanced">
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-search icon"></i>Phase 1: Foundation (Aug 2025 - Jul 2026)
+                        </div>
+                        <strong>Investigation and Baseline Development</strong>
+                        <ul>
                             <li>4 field survey missions in Ha Giang and Lao Cai</li>
                             <li>2 local seminars + 1 thematic workshop</li>
                             <li>2 in-depth analytical reports</li>
                             <li>Launch of communication fanpage</li>
                         </ul>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 33%"></div>
+                        </div>
+                        <small>first 12 months</small>
                     </div>
-                    
-                    <div class="timeline-phase">
-                        <div class="phase-title">💻 Phase 2: Digitization (Jan 2026 – Dec 2026)</div>
-                        <p><strong>Technology Development</strong></p>
-                        <ul class="bullet-points">
+                   
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-laptop icon"></i>&nbsp;Phase 2: Digitization (Jan 2026 - Dec 2026)
+                        </div>
+                        <strong>Technology Development</strong>
+                        <ul>
                             <li>Construction of a multimedia digital database</li>
                             <li>Development of information system software</li>
                             <li>Compilation of bilingual (Vietnamese–English) digital publications</li>
                         </ul>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 44%"></div>
+                        </div>
+                        <small>12 months - 44% of project duration</small>
                     </div>
-                    
-                    <div class="timeline-phase">
-                        <div class="phase-title">🌟 Phase 3: Application (Jul 2026 – Oct 2027)</div>
-                        <p><strong>Deployment and Dissemination</strong></p>
-                        <ul class="bullet-points">
+                </div>
+            </section>
+
+            <!-- Slide 7B: Kế hoạch thực hiện (tiếp) -->
+            <section>
+                <h2><i class="fas fa-calendar-alt icon"></i>IMPLEMENTATION PLAN (cont'd)</h2>
+
+                <div class="timeline-enhanced">
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-share-alt icon"></i>Phase 3: Application (Jul 2026 - Oct 2027)
+                        </div>
+                        <strong>Deployment and Dissemination</strong>
+                        <ul>
                             <li>Regional workshop and policy report</li>
                             <li>5 community training sessions</li>
-                            <li>Creative contest: "La Chi – Stories from Our Village"</li>
+                            <li>Creative contest: "La Chi - Stories from Our Village"</li>
                             <li>Continuous media outreach</li>
                         </ul>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 23%"></div>
+                        </div>
+                        <small>last 6 months - 23% of project duration</small>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Slide 9: Expected Outcomes -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">09/17</div>
-                <div class="slide-title">EXPECTED OUTCOMES</div>
-            </div>
-            <div class="slide-content">
-                <h2>🏆 13 Tangible Deliverables</h2>
-                
-                <div class="activities-section">
-                    <div class="activity-group">
-                        <div class="activity-header">Research Outputs</div>
-                        <ul class="activity-list">
-                            <li>Comprehensive Project Report – Summarizing all research findings</li>
-                            <li>Policy Recommendation Report – Proposing actionable cultural policies</li>
-                            <li>Three Academic Articles – Published in reputable journals</li>
-                            <li>Monograph – "Digital Technology in La Chi Cultural Heritage Preservation"</li>
-                        </ul>
+                <div class="section-divider"></div>
+
+                <div class="stats-grid">
+                    <div class="metric-card">
+                        <span class="metric-value">24</span>
+                        <div class="metric-label">Months</div>
                     </div>
-                    
-                    <div class="activity-group">
-                        <div class="activity-header">Technological Products</div>
-                        <ul class="activity-list">
-                            <li>Digital Database – A multimedia repository of La Chi cultural heritage</li>
-                            <li>Information System Software – Application for managing cultural and tourism data</li>
-                            <li>Bilingual E-book – Vietnamese–English digital publication on La Chi culture</li>
-                        </ul>
+                    <div class="metric-card">
+                        <span class="metric-value">3</span>
+                        <div class="metric-label">Phases</div>
                     </div>
-                    
-                    <div class="activity-group">
-                        <div class="activity-header">Training & Communication</div>
-                        <ul class="activity-list">
-                            <li>Facebook Fanpage – Primary media outreach platform</li>
-                            <li>Community Digital Content Hub – Videos, images, and cultural narratives</li>
-                            <li>Two Cultural Contests – "La Chi Culture Through Young Eyes" & "Guardians of La Chi Spirit"</li>
-                            <li>Five Training Workshops – Community capacity building</li>
-                            <li>14 Media Articles – Featured in press and online platforms</li>
-                            <li>Final Project Showcase – Public dissemination and closing event</li>
-                        </ul>
+                    <div class="metric-card">
+                        <span class="metric-value">13</span>
+                        <div class="metric-label">Tangible Products</div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- Slide 10: Implementing Team - Lead Institution -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">10/17</div>
-                <div class="slide-title">IMPLEMENTING TEAM – LEAD INSTITUTION</div>
-            </div>
-            <div class="slide-content">
-                <h2>🏫 Thai Nguyen University – Outstanding Capabilities</h2>
+            <!-- Slide 9: Kết quả dự kiến -->
+            <section>
+                <h2><i class="fas fa-trophy icon"></i>EXPECTED OUTCOMES</h2>
+
+                <h3><i class="fas fa-gift icon"></i>13 Tangible Deliverables</h3>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4><i class="fas fa-book icon"></i>&nbsp;Research Outputs</h4>
+                        <ol>
+                            <li>Comprehensive Project Report</li>
+                            <li>Policy Recommendation Report</li>
+                            <li>Three Academic Articles</li>
+                            <li>Monograph: "Digital Technology in La Chi Cultural Heritage Preservation"</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-laptop-code icon"></i>&nbsp;&nbsp;Technological Products</h4>
+                        <ol start="4">
+                            <li>Digital Database</li>
+                            <li>Information System Software</li>
+                            <li>Bilingual E-book</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-bullhorn icon"></i>Training & Communication Products (7–12)</h4>
+                        <ol start="7">
+                            <li>Official Facebook Fanpage</li>
+                            <li>Community Digital Content Hub</li>
+                            <li>Two La Chi Cultural Contests</li>
+                            <li>Five Community Training Workshops</li>
+                            <li>14 Media Articles</li>
+                            <li>Final Project Showcase</li>
                 
-                <div class="activities-section">
-                    <div class="activity-group">
-                        <div class="activity-header">Scale and Reputation</div>
-                        <ul class="bullet-points">
-                            <li><strong>Established:</strong> 1994 – A multi-disciplinary public university</li>
-                            <li><strong>Structure:</strong> 12 academic units (7 universities, 2 branches, 3 affiliated centers)</li>
-                            <li><strong>Personnel:</strong> 3,691 staff members (921 PhDs, 158 Professors/Associate Professors)</li>
-                            <li><strong>Quality Assurance:</strong> 100% of member institutions accredited at the institutional level</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: Đội ngũ thực hiện - Tổ chức -->
+            <section>
+                <h2><i class="fas fa-university icon"></i>IMPLEMENTING TEAM - LEAD INSTITUTION</h2>
+
+                <h3><i class="fas fa-medal icon"></i>Thai Nguyen University - Outstanding Capabilities</h3>
+
+                <div class="stats-grid">
+                    <div class="metric-card">
+                        <span class="metric-value">1994</span>
+                        <div class="metric-label">Established</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">3,691</span>
+                        <div class="metric-label">Staff Members</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">921</span>
+                        <div class="metric-label">PhDs</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">100%</span>
+                        <div class="metric-label">Accredited</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4><i class="fas fa-chart-line icon"></i>&nbsp; Research Capacity</h4>
+                        <ul>
+                            <li>123 national-level projects (2014-2023)</li>
+                            <li>247 ministerial/provincial-level projects</li>
+                            <li>144 international partners</li>
+                           <li>Kovalevskaia Prize (2011, 2014, 2019)</li>
                         </ul>
                     </div>
                     
-                    <div class="activity-group">
-                        <div class="activity-header">Research Capacity</div>
-                        <ul class="bullet-points">
-                            <li><strong>National-Level Projects:</strong> 123 projects (2014–2023)</li>
-                            <li><strong>Ministerial/Provincial-Level Projects:</strong> 247 projects</li>
-                            <li><strong>International Cooperation:</strong> 144 global partners across continents</li>
-                            <li><strong>Awards:</strong> Kovalevskaia Prize (2011, 2014, 2019)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="activity-group">
-                        <div class="activity-header">Relevant Experience</div>
-                        <ul class="bullet-points">
+                    <div class="feature-box">
+                        <h4><i class="fas fa-trophy icon"></i>&nbsp;Research Experience</h4>
+                        <ul>
                             <li><strong>Ethnic Minority Research:</strong> Projects ĐTĐL.XH-01/18, ĐTĐL.XH-02/18</li>
+            
                             <li><strong>Educational Technology:</strong> Vietnamese language learning software for ethnic minorities</li>
                             <li><strong>Work in Ha Giang:</strong> NVQG-2019/ĐT.12 and several other regional projects</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- Slide 11: Core Team Members -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">11/17</div>
-                <div class="slide-title">IMPLEMENTING TEAM – CORE MEMBERS</div>
-            </div>
-            <div class="slide-content" style="margin-top: 30px; padding-top: 20px;">
-                <h2 style="margin-top: 0;">👥 16 Core Experts + 5 Collaborators</h2>
+            <!-- Slide 10B: Kinh nghiệm phù hợp -->
+            <section>
+                <h2><i class="fas fa-university icon"></i>RELEVANT EXPERIENCE FOR THE PROJECT</h2>
+                
+                               
+                <div class="feature-grid">
+                    <div class="feature-box success-box">
+                        <h4><i class="fas fa-users icon"></i>&nbsp;&nbsp;Ethnic Minorities</h4>
+                        <ul>
+                            <li>ĐTĐL.XH-01/18: Preservation of ethnic minority languages</li>
+                            <li>ĐTĐL.XH-02/18: Communication in ethnic minority languages</li>
+                            <li>Vietnamese language teaching software for ethnic minorities in the Northwest</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box success-box">
+                        <h4><i class="fas fa-map-marker-alt icon"></i>Experience in Ha Giang</h4>
+                        <ul>
+                            <li>NVQG-2019/ĐT.12: Exploitation of red plum genetic resources</li>
+                            <li>Conservation of precious medicinal plant genetic resources</li>
+                            <li>In-depth understanding of local ecological and social conditions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box success-box">
+                        <h4><i class="fas fa-microchip icon"></i>&nbsp;Digital Cultural Technology</h4>
+                        <ul>
+                            <li>Numerous projects integrating technology - language - culture</li>
+                            <li>Digital platform for cultural preservation</li>
+                            <li>Experience in deploying technology for communities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="highlight-box">
+                    <strong>A solid foundation for deploying a digital platform to preserve La Chi culture in association with community-based tourism</strong>
+                </div>
+            </section>
+
+            <!-- Slide 10: Đội ngũ thành viên -->
+            <section>
+                <h2><i class="fas fa-users icon"></i>&nbsp;&nbsp; IMPLEMENTING TEAM – CORE MEMBERS AND COLLABORATORS</h2>
+
+                <h3><i class="fas fa-user-tie icon"></i>16 Experts + 5 La Chi Artisans</h3>
+
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-name">TS. Nguyễn Thị Hải Anh</div>
+                        <div class="team-title">Project Leader</div>
+                        <ul>
+                            <li>19 scientific articles (2 Scopus Q1, Q3)</li>
+                            <li>Second Prize at the Vietnam Folk Arts Festival</li>
+                            <li>Led 6 international projects on digital technology and vulnerable communities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">ThS. Trương Thị Phương</div>
+                        <div class="team-title">Communication Development Lecturer</div>
+                        <ul>
+                            <li>Research on infographics, digital communication</li>
+                            <li>Understanding of cultural digitization and community tourism</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">PGS.TS. Nguyễn Việt Hùng</div>
+                        <div class="team-title">Central Highlands Epic Expert</div>
+                        <ul>
+                            <li>30+ scientific articles, 9 specialized books</li>
+                            <li>Led state-level research projects</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">TS. Trần Hữu Sơn</div>
+                        <div class="team-title">Ethnic Culture Expert</div>
+                        <ul>
+                            <li>Former Director of the Department of Culture, Sports and Tourism of Lao Cai</li>
+                            <li>35+ scientific articles, 18 books on La Chi culture</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">ThS. NCS Trần Xuân Hùng</div>
+                        <div class="team-title">Editor of the Journal of Social Sciences and Humanities</div>
+                        <ul>
+                            <li>20 articles, 6 projects at all levels</li>
+                            <li>Has articles indexed in ESCI</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">ThS. Nguyễn Văn Sự</div>
+                        <div class="team-title">Director of the Software Center</div>
+                        <ul>
+                            <li>Project leader/member of 9 IT projects</li>
+                            <li>Experience in management software development</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10B: Đội ngũ thành viên (Phần 2) -->
+            <section>
+                <h2><i class="fas fa-users icon"></i>&nbsp;&nbsp;IMPLEMENTING TEAM – CORE MEMBERS AND COLLABORATORS</h2>
                 
                 <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-name">1. Dr. Nguyen Thi Hai Anh</div>
-                        <div class="member-title">Project Director</div>
-                        <div class="member-expertise">19 academic publications (2 in Scopus Q1, Q3 journals), Second Prize Vietnam Folklore Association (2020), Led 6 international projects on digital technology and vulnerable communities</div>
+                    <div class="team-card">
+                        <div class="team-name">ThS. Đỗ Thị Phượng</div>
+                        <div class="team-title">Digital Journalism Expert</div>
+                        <ul>
+                            <li>Specializes in computer graphics, virtual reality</li>
+                            <li>Relevant to cultural digitization</li>
+                        </ul>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-name">2. MSc. Truong Thi Phuong</div>
-                        <div class="member-title">Development Communication Lecturer</div>
-                        <div class="member-expertise">Research focus: infographics, digital communication, sustainable development. Expert in digital communication for cultural preservation and community tourism</div>
+                    <div class="team-card">
+                        <div class="team-name">CV. Nguyễn Ngọc Thanh</div>
+                        <div class="team-title">Cultural Specialist</div>
+                        <ul>
+                            <li>4 books, led 1 provincial-level project</li>
+                            <li>3A Prize for Vietnamese Folklore Arts</li>
+                        </ul>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-name">3. Assoc. Prof. Dr. Nguyen Viet Hung</div>
-                        <div class="member-title">Central Highlands Epic Expert</div>
-                        <div class="member-expertise">30+ papers, 9 scholarly books, Principal investigator of a national-level research project</div>
+                    <div class="team-card">
+                        <div class="team-name">TS. Nguyễn Thế Vịnh</div>
+                        <div class="team-title">Head of Software Technology Department</div>
+                        <ul>
+                            <li>45 international articles (2018-2025)</li>
+                            <li>Specializes in VR, cultural digitization</li>
+                        </ul>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-name">4. Dr. Tran Huu Son</div>
-                        <div class="member-title">Ethnic Culture Specialist</div>
-                        <div class="member-expertise">Former Director, Department of Culture, Sports and Tourism, Lao Cai. 35+ articles, 18 books on La Chi, Dao, and Hmong cultures</div>
+                    <div class="team-card">
+                        <div class="team-name">TS. Phạm Quốc Tuấn</div>
+                        <div class="team-title">Literature and Publishing Expert</div>
+                        <ul>
+                            <li>Project leader of 4 projects, 9 specialized books</li>
+                            <li>Specializes in minority literature</li>
+                        </ul>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-name">5. MSc., PhD Candidate Tran Xuan Hung</div>
-                        <div class="member-title">Editor, Journal of Social Sciences & Humanities</div>
-                        <div class="member-expertise">20 papers, 6 research projects, Author of a paper published in ESCI (The Russian Journal of Vietnamese Studies)</div>
+                    <div class="team-card">
+                        <div class="team-name">TS. Tạ Thị Thảo</div>
+                        <div class="team-title">Cultural Policy Expert</div>
+                        <ul>
+                            <li>Research on ethnic minority conservation policies</li>
+                            <li>Specializes in cultural livelihood models</li>
+                        </ul>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-name">6. MSc. Nguyen Van Su</div>
-                        <div class="member-title">Director, Software Development Center</div>
-                        <div class="member-expertise">PI/member of 9 IT projects, Experienced in developing information management software</div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-name">7. MSc. Do Thi Phuong</div>
-                        <div class="member-title">Digital Journalism Specialist</div>
-                        <div class="member-expertise">Focus areas: computer graphics, online media, virtual reality. Suitable for media and cultural digitization strategies</div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-name">8. Specialist Nguyen Ngoc Thanh</div>
-                        <div class="member-title">Cultural Affairs Officer</div>
-                        <div class="member-expertise">Author of 4 books, PI of 1 provincial-level project, contributor to 5 cultural initiatives. Awarded IP protection and Third Prize A, Vietnam Folklore Association</div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-name">9. Dr. Nguyen The Vinh</div>
-                        <div class="member-title">Head of Software Engineering Department</div>
-                        <div class="member-expertise">45 international scientific publications (2018–2025), PI/member of 4 institutional and ministerial-level projects. Specializes in cultural digitization and virtual reality</div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-name">10. Dr. Pham Quoc Tuan</div>
-                        <div class="member-title">Expert in Literature and Publishing</div>
-                        <div class="member-expertise">PI/member of 4 research projects, author of 9 scholarly books. Focus on minority literature, revolutionary culture, and digital publishing</div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-name">11. Dr. Ta Thi Thao</div>
-                        <div class="member-title">Cultural Policy Specialist</div>
-                        <div class="member-expertise">Researches policies for ethnic cultural preservation. Lead researcher on public service models and culture-based livelihoods</div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-name">12. MSc. Nguyen Viet Tuan</div>
-                        <div class="member-title">Local Cultural Management Officer</div>
-                        <div class="member-expertise">Nearly 20 years of experience in district-level cultural administration. Former Director, Hoang Su Phi Cultural and Tourism Center. Expert in community-based tourism</div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-name">13. Mr. Hoang Du</div>
-                        <div class="member-title">Editor-in-Chief, Literature & Arts Times</div>
-                        <div class="member-expertise">Writer and journalist with deep experience in cultural media. Specializes in cultural documentaries and heritage workshops</div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-name">14. Dr. Leng Thi Lan</div>
-                        <div class="member-title">Dean of Basic Sciences Faculty</div>
-                        <div class="member-expertise">8 scientific articles and 1 monograph on minority literature. Participant in 3 research projects on migration, digital transformation, and community tourism</div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-name">15. Mr. Tran Chi Nhan</div>
-                        <div class="member-title">Cultural Management Specialist</div>
-                        <div class="member-expertise">30 years of experience; lead contributor to La Chi and Ha Giang cultural projects. Major contributor to Ha Giang Gazetteer. Author of numerous books on traditional local history</div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-name">16. Assoc. Prof. Dr. Nguyen Thi Minh Thu</div>
-                        <div class="member-title">Folklore Literature Expert</div>
-                        <div class="member-expertise">Specialist in ethnic minority folklore and oral traditions. Contributor to multiple ministerial-level projects. Researches narrative traditions, mythology, and belief systems</div>
+                    <div class="team-card">
+                        <div class="team-name">ThS. Nguyễn Viết Tuân</div>
+                        <div class="team-title">Local Cultural Management Officer</div>
+                        <ul>
+                            <li>20 years of experience in cultural management</li>
+                            <li>Former Director of Hoàng Su Phì Cultural and Tourism Center</li>
+                        </ul>
                     </div>
                 </div>
+            </section>
+
+            <!-- Slide 10C: Đội ngũ thành viên (Phần 3) -->
+            <section>
+                <h2><i class="fas fa-users icon"></i>IMPLEMENTING TEAM – CORE MEMBERS AND COLLABORATORS</h2>
                 
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-name">Ông Hoàng Dự</div>
+                        <div class="team-title">Editor-in-Chief of Literary and Artistic Newspaper</div>
+                        <ul>
+                            <li>Experienced writer and journalist</li>
+                            <li>Specializes in cultural documentary films</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">TS. Lèng Thị Lan</div>
+                        <div class="team-title">Head of Basic Sciences Department</div>
+                        <ul>
+                            <li>8 articles and 1 book on ethnic minority literature</li>
+                            <li>Member of 3 projects on community tourism</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">Ông Trần Chí Nhân</div>
+                        <div class="team-title">Cultural Management Expert</div>
+                        <ul>
+                            <li>30 years of experience</li>
+                            <li>Led many La Chí cultural projects</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">PGS.TS. Nguyễn Thị Minh Thu</div>
+                        <div class="team-title">Folk Literature Expert</div>
+                        <ul>
+                            <li>Expert in ethnic minority folk literature</li>
+                            <li>Participated in many Ministry-level projects</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">5 Nghệ nhân La Chí</div>
+                        <div class="team-title">Practitioners of living heritage</div>
+                        <ul>
+                            <li>Provide authentic indigenous knowledge</li>
+                            <li>Represent the voice of the community</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card highlight-card">
+                        <div class="team-name">Working Mechanism</div>
+                        <div class="team-title">Effective Coordination</div>
+                        <ul>
+                            <li>Open and transparent working style</li>
+                            <li>Regular team meetings</li>
+                            <li>Task specialization</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 11: Giá trị và tác động -->
+            <section>
+                <h2><i class="fas fa-star icon"></i>&nbsp;PROJECT VALUE AND IMPACT</h2>
+                <h3><i class="fas fa-chart-line icon"></i>Multidimensional Impact</h3>
+                
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4><i class="fas fa-flask icon"></i>&nbsp;Scientific Aspect</h4>
+                        <ul>
+                            <li><strong>New theoretical contributions</strong> to digital cultural preservation</li>
+                            <li><strong>Pioneering model</strong> that can be replicated</li>
+                            <li><strong>International publications</strong> enhance Vietnam's scientific prestige</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-users icon"></i>&nbsp;&nbsp;Social Aspect</h4>
+                        <ul>
+                            <li><strong>Preserve the heritage</strong> of the La Chí ethnic group for future generations</li>
+                            <li><strong>Raise community awareness</strong> about cultural values</li>
+                            <li><strong>Enhance ethnic cultural identity</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-coins icon"></i>&nbsp;Economic Aspect</h4>
+                        <ul>
+                            <li><strong>Sustainable community tourism development</strong></li>
+                            <li><strong>New livelihoods</strong> for the La Chí people</li>
+                            <li><strong>Attract investment</strong> to ethnic minority areas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-microchip icon"></i>&nbsp;Technological Aspect</h4>
+                        <ul>
+                            <li><strong>Digitize heritage</strong> using advanced technology</li>
+                            <li><strong>Build a platform</strong> for preservation technology</li>
+                            <li><strong>Transfer technology</strong> to the community</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 12: Dự toán -->
+            <section>
+                <h2><i class="fas fa-calculator icon"></i>BUDGET ESTIMATION AND ALLOCATION</h2>
+
                 <div class="highlight-box">
-                    <h3>📋 Collaborators</h3>
-                    <p><strong>4 La Chi Artisans</strong> – Living Heritage Practitioners providing authentic indigenous knowledge and representing the voice of the community</p>
-                    <p><strong>1 Local Government Representative</strong> – Ensures alignment with local policies and supports implementation</p>
+                    <h3><i class="fas fa-money-bill-wave icon"></i>Total Budget: 2,831,859,282 VNĐ</h3>
                 </div>
-            </div>
-        </div>
 
-        <!-- Slide 12: Budget Estimate -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">12/17</div>
-                <div class="slide-title">BUDGET ESTIMATE AND ALLOCATION</div>
-            </div>
-            <div class="slide-content" style="padding-top: 90px;">
-                <h2>💰 Total Budget: VND 2,831,859,282</h2>
-                
-                <table class="budget-table">
-                    <thead>
-                        <tr>
-                            <th>Category</th>
-                            <th>Amount (VND)</th>
-                            <th>Percentage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Direct Labor Costs</strong></td>
-                            <td>828,800,000</td>
-                            <td>29.27%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Equipment and Materials</strong></td>
-                            <td>428,498,840</td>
-                            <td>15.13%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Other Expenses</strong></td>
-                            <td>1,574,560,442</td>
-                            <td>55.60%</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="activities-section">
-                    <div class="activity-group">
-                        <div class="activity-header">Disbursement Schedule</div>
-                        <ul class="bullet-points">
-                            <li><strong>First Installment (20.73%):</strong> VND 587,010,147 – Project initiation</li>
-                            <li><strong>Second Installment (55.82%):</strong> VND 1,580,428,987 – Main implementation</li>
-                            <li><strong>Third Installment (23.45%):</strong> VND 664,420,147 – Completion and final reporting</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="activity-group">
-                        <div class="activity-header">Investment Effectiveness</div>
-                        <ul class="bullet-points">
-                            <li><strong>Cost-efficient</strong> for a technology-driven breakthrough project</li>
-                            <li><strong>High output value</strong> with 13 concrete deliverables</li>
-                            <li><strong>Long-term impact</strong> on both the local community and scientific advancement</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                    <!-- Cost structure -->
+                    <div>
+                        <h3><i class="fas fa-chart-pie icon"></i>Cost Allocation</h3>
 
-        <!-- Slide 13: Project Values and Impact -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">13/17</div>
-                <div class="slide-title">PROJECT VALUES AND IMPACT</div>
-            </div>
-            <div class="slide-content" style="padding-top: 100px;">
-                <h2>🌟 Multidimensional Impact</h2>
-                
-                <div class="impact-grid">
-                    <div class="impact-card impact-scientific">
-                        <h3>🔬 Scientific Impact</h3>
-                        <ul class="bullet-points">
-                            <li>New theoretical contributions to digital cultural heritage preservation</li>
-                            <li>Pioneering model with potential for replication</li>
-                            <li>International publications enhancing the scientific reputation of Vietnam</li>
-                        </ul>
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div class="pie-chart" style="width: 120px; height: 120px;">
+                                <div class="pie-center" style="font-size: 0.8em;">100%</div>
+                            </div>
+                            <div style="flex: 1; font-size: 0.9em;">
+                                <div style="margin-bottom: 10px;">
+                                    <div style="display: flex; align-items: center; margin-bottom: 3px;">
+                                        <div style="width: 15px; height: 15px; background: var(--primary-color); margin-right: 8px;"></div>
+                                        <strong> Direct Labor Costs (29.27%)</strong>
+                                    </div>
+                                    <div style="font-size: 0.8em; color: var(--text-light);">828.800.000 VNĐ</div>
+                                </div>
+                                
+                                <div style="margin-bottom: 10px;">
+                                    <div style="display: flex; align-items: center; margin-bottom: 3px;">
+                                        <div style="width: 15px; height: 15px; background: var(--secondary-color); margin-right: 8px;"></div>
+                                        <strong>Equipment and Materials (15.13%)</strong>
+                                    </div>
+                                    <div style="font-size: 0.8em; color: var(--text-light);">428.498.840 VNĐ</div>
+                                </div>
+                                
+                                <div>
+                                    <div style="display: flex; align-items: center; margin-bottom: 3px;">
+                                        <div style="width: 15px; height: 15px; background: var(--accent-color); margin-right: 8px;"></div>
+                                        <strong>Other Expenses (55.60%)</strong>
+                                    </div>
+                                    <div style="font-size: 0.8em; color: var(--text-light);">1.574.560.442 VNĐ</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="impact-card impact-social">
-                        <h3>👥 Social Impact</h3>
-                        <ul class="bullet-points">
-                            <li>Preservation of the La Chi ethnic heritage for future generations</li>
-                            <li>Raised community awareness of cultural values</li>
-                            <li>Strengthening ethnic identity and pride</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="impact-card impact-economic">
-                        <h3>💼 Economic Impact</h3>
-                        <ul class="bullet-points">
-                            <li>Sustainable development of community-based tourism</li>
-                            <li>New livelihoods created for the La Chi people</li>
-                            <li>Attracting investment to ethnic minority areas</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="impact-card impact-technological">
-                        <h3>⚙️ Technological Impact</h3>
-                        <ul class="bullet-points">
-                            <li>Digitization of heritage using advanced technologies</li>
-                            <li>Development of a technological platform for heritage preservation</li>
-                            <li>Technology transfer to local communities</li>
-                        </ul>
+
+                    <!-- Phân bổ theo tiến độ -->
+                    <div>
+                        <h3><i class="fas fa-clock icon"></i>Disbursement Schedule</h3>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="min-width: 60px;">
+                                    <div style="font-weight: bold; color: var(--primary-color);">First Installment</div>
+                                    <div style="font-size: 0.8em;">20.73%</div>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="margin-bottom: 5px;"><strong>587 billion VNĐ</strong> - Project initiation</div>
+                                    <div class="progress-bar" style="height: 8px;">
+                                        <div class="progress-fill" style="width: 21%; height: 100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="min-width: 60px;">
+                                    <div style="font-weight: bold; color: var(--secondary-color);">Second Installment</div>
+                                    <div style="font-size: 0.8em;">55.82%</div>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="margin-bottom: 5px;"><strong>1,580 billion VNĐ</strong> - Main implementation</div>
+                                    <div class="progress-bar" style="height: 8px;">
+                                        <div class="progress-fill" style="width: 56%; height: 100%; background: var(--secondary-color);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="min-width: 60px;">
+                                    <div style="font-weight: bold; color: var(--accent-color);">Third Installment</div>
+                                    <div style="font-size: 0.8em;">23.45%</div>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="margin-bottom: 5px;"><strong>664 billion VNĐ</strong> - Completion</div>
+                                    <div class="progress-bar" style="height: 8px;">
+                                        <div class="progress-fill" style="width: 23%; height: 100%; background: var(--accent-color);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Slide 14: Feasibility and Risks -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">14/17</div>
-                <div class="slide-title">FEASIBILITY AND RISKS</div>
-            </div>
-            <div class="slide-content">
-                <div class="activities-section">
-                    <div class="activity-group">
-                        <div class="activity-header">✅ Success Enablers</div>
+                <div class="section-divider"></div>
+
+                <div class="highlight-box success-box">
+                    <strong>Investment Efficiency: Reasonable costs for 13 specific products with long-term impact</strong>
+                </div>
+            </section>
+
+            <!-- Slide 13: Tính khả thi -->
+            <section>
+                <h2><i class="fas fa-check-circle icon"></i>FEASIBILITY AND RISK</h2>
+
+                <div class="risk-grid">
+                    <div class="risk-section">
+                        <h3><i class="fas fa-thumbs-up icon"></i>Success Enablers</h3>
+
                         <h4>Implementation Capacity</h4>
-                        <ul class="bullet-points">
+                        <ul>
                             <li>A team of leading experts with extensive experience</li>
                             <li>A reputable host institution with a strong research track record</li>
                             <li>Support from local government authorities</li>
                         </ul>
-                        
+
                         <h4>Practical Foundations</h4>
-                        <ul class="bullet-points">
-                            <li>Urgent demand from the La Chi community</li>
+                        <ul>
+                            <li></li>Urgent demand from the La Chi community</li>
                             <li>State policies prioritizing ethnic and cultural development</li>
                             <li>Active participation of local artisans</li>
                         </ul>
                     </div>
                     
-                    <div class="activity-group">
-                        <div class="activity-header">⚠️ Risk Management</div>
-                        <ul class="bullet-points">
-                            <li><strong>Technical Risks</strong><br>Mitigation: Expert consultation and contingency planning</li>
-                            <li><strong>Time-related Risks</strong><br>Mitigation: Strict progress monitoring and parallel task execution</li>
-                            <li><strong>Community Risks</strong><br>Mitigation: Close engagement with artisans and local leadership</li>
-                        </ul>
+                    <div class="risk-section">
+                        <h3><i class="fas fa-exclamation-triangle icon"></i>Risk Management</h3>
+
+                        <h4>Technical Risks</h4>
+                        <p><strong>Mitigation Measures:</strong> Expert consultation and contingency planning</p>
+
+                        <h4>Time Risks</h4>
+                        <p><strong>Mitigation Measures:</strong> Strict progress monitoring and parallel task execution</p>
+
+                        <h4>Community Risks</h4>
+                        <p><strong>Mitigation Measures:</strong> Close engagement with artisans and local leadership</p>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- Slide 15: Roadmap and Vision -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">15/17</div>
-                <div class="slide-title">ROADMAP AND VISION</div>
-            </div>
-            <div class="slide-content">
-                <h2>🚀 Long-Term Development Roadmap</h2>
-                
-                <div class="timeline-section">
-                    <div class="timeline-phase">
-                        <div class="phase-title">📅 Short Term (2025–2027) – Current Project</div>
-                        <ul class="bullet-points">
+            <!-- Slide 15: Roadmap -->
+            <section>
+                <h2><i class="fas fa-route icon"></i>ROADMAP AND VISION</h2>
+
+                <h3><i class="fas fa-rocket icon"></i>Long-term Development Roadmap</h3>
+
+                <div class="timeline-enhanced">
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-play-circle icon"></i>Short-term (2025-2027) - Current Project
+                        </div>
+                        <ul>
                             <li>Completion of 13 planned deliverables</li>
                             <li>Establishment of a successful pilot model</li>
                             <li>Publication of research outcomes</li>
                         </ul>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <small>In Progress - 100% Commitment</small>
                     </div>
                     
-                    <div class="timeline-phase">
-                        <div class="phase-title">📈 Medium Term (2028–2030) – Expansion and Scaling</div>
-                        <ul class="bullet-points">
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-expand-arrows-alt icon"></i>Medium-term (2028-2030) - Expansion
+                        </div>
+                        <ul>
                             <li>Replication of the model for other ethnic minorities</li>
                             <li>Geographic expansion to other Northern mountainous provinces</li>
                             <li>Development of a comprehensive technological platform</li>
                         </ul>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                        <small>Scaling Plan - 60% Feasibility</small>
                     </div>
-                    
-                    <div class="timeline-phase">
-                        <div class="phase-title">🌟 Long Term (2031+) – Sustainability and Advancement</div>
-                        <ul class="bullet-points">
+                </div>
+            </section>
+
+            <!-- Slide 15B: Long-term Vision -->
+            <section>
+                <h2><i class="fas fa-route icon"></i>LONG-TERM VISION</h2>
+
+                <div class="timeline-enhanced">
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-globe icon"></i>Long-term (2031+) - Sustainability and Development
+                        </div>
+                        <ul>
                             <li>Evolve into a regional center for digital cultural preservation</li>
                             <li>Foster international cooperation in heritage conservation</li>
                             <li>Contribute to national sustainable development goals</li>
                         </ul>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%"></div>
+                        </div>
+                        <small>Long-term Vision - 40% Success Forecast</small>
                     </div>
                 </div>
-                
-                <div class="quote">
-                    🎯 <strong>Vision:</strong> "To become a pioneering model in applying digital technology for the preservation and promotion of ethnic cultural values, contributing to a digital and sustainable Vietnam."
-                </div>
-            </div>
-        </div>
 
-        <!-- Slide 16: Conclusion -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">16/17</div>
-                <div class="slide-title">CONCLUSION AND RECOMMENDATIONS</div>
-            </div>
-            <div class="slide-content" style="padding-top: 100px;">
-                <h2>🎯 Key Highlights of the Project</h2>
-                
-                <div class="impact-grid">
-                    <div class="impact-card impact-scientific">
-                        <h3>🚨 High Urgency</h3>
-                        <p>Addresses the critical need for preserving La Chi cultural heritage – a vulnerable ethnic community. Fully aligned with national policy orientations.</p>
+                <div class="section-divider"></div>
+
+                <div class="quote">
+                    <h3><i class="fas fa-eye icon"></i>Vision 2035</h3>
+                    "To become a pioneering model in applying digital technology for the preservation and promotion of ethnic cultural values, contributing to a digital and sustainable Vietnam."
+                </div>
+
+                <div class="stats-grid">
+                    <div class="metric-card">
+                        <span class="metric-value">10+</span>
+                        <div class="metric-label">Supported Ethnic Minorities</div>
                     </div>
-                    
-                    <div class="impact-card impact-social">
-                        <h3>💡 Outstanding Innovation</h3>
-                        <p>First-ever specialized digital heritage preservation model in Vietnam. Seamless integration of modern technology and indigenous knowledge.</p>
+                    <div class="metric-card">
+                        <span class="metric-value">50+</span>
+                        <div class="metric-label">International Partners</div>
                     </div>
-                    
-                    <div class="impact-card impact-economic">
-                        <h3>✅ High Feasibility</h3>
-                        <p>Leading experts with extensive experience. A reputable implementing organization with a proven track record. Strong and active participation of the local community.</p>
-                    </div>
-                    
-                    <div class="impact-card impact-technological">
-                        <h3>🌍 Broad Impact</h3>
-                        <p>Internationally valuable scientific contributions. Direct benefits for the La Chi community. Scalable model applicable nationwide.</p>
+                    <div class="metric-card">
+                        <span class="metric-value">100K+</span>
+                        <div class="metric-label">Served Individuals</div>
                     </div>
                 </div>
-                
+            </section>
+
+            <!-- Slide 15: Conclusion -->
+            <section>
+                <h2><i class="fas fa-flag-checkered icon"></i>CONCLUSION AND RECOMMENDATIONS</h2>
+
+                <h3><i class="fas fa-star icon"></i>Highlights of the Project</h3>
+
+                <div class="feature-grid">
+                    <div class="feature-box success-box">
+                        <h4>High Urgency</h4>
+                        <ul>
+                            <li>Addressing the critical need for preserving La Chí cultural heritage – a vulnerable ethnic community</li>
+                            <li>Fully aligned with national policy orientations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box success-box">
+                        <h4>Outstanding Innovation</h4>
+                        <ul>
+                            <li>First-ever specialized digital heritage preservation model in Vietnam</li>
+                            <li>Seamless integration of modern technology and indigenous knowledge</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box success-box">
+                        <h4>High Feasibility</h4>
+                        <ul>
+                            <li>Leading experts with extensive experience</li>
+                            <li>Reputable implementing organization with excellent track record</li>
+                            <li>Active participation of the local community</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box success-box">
+                        <h4>Broad Impact</h4>
+                        <ul>
+                            <li>Internationally valuable scientific contributions</li>
+                            <li>Direct benefits for the La Chí community</li>
+                            <li>Scalable model applicable nationwide</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="highlight-box">
-                    <h2>🙏 Proposal for VINIF Support</h2>
-                    <p style="font-size: 1.3em; text-align: center; font-weight: bold;">"To join us in writing a success story of ethnic cultural preservation in the digital era"</p>
+                    <h3><i class="fas fa-handshake icon"></i>Proposal for VINIF Support</h3>
+                    <strong>"To join us in writing a success story about preserving ethnic minority culture in the digital era"</strong>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- Slide 17: Thank You -->
-        <div class="slide">
-            <div class="slide-header">
-                <div class="slide-number">17/17</div>
-                <div class="slide-title">THANK YOU & DISCUSSION</div>
-            </div>
-            <div class="slide-content">
-                <div class="contact-info">
-                    <h2>📞 Contact Information</h2>
+            <!-- Slide 16: Appreciation -->
+            <section class="title-slide">
+                <h2><i class="fas fa-phone icon"></i>&nbsp;&nbsp;CONTACT INFORMATION</h2>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h4><i class="fas fa-user icon"></i>Project Leader</h4>
+                        <p><strong>Dr. Nguyễn Thị Hải Anh</strong></p>
+                        <p><i class="fas fa-envelope icon"></i>haianh@tnu.edu.vn</p>
+                        <p><i class="fas fa-phone icon"></i>+84 97 8662 484</p>
+                    </div>
                     
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <span>👤</span>
-                            <div>
-                                <strong>Dr. Nguyễn Thị Hải Anh</strong><br>
-                                Project Director
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <span>📧</span>
-                            <div>nguyenhaianh.sfl@tnu.edu.vn</div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <span>📱</span>
-                            <div>+84 97 8662 484</div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <span>🏢</span>
-                            <div>
-                                <strong>Thai Nguyen University</strong><br>
-                                Bac Son Street, Phan Dinh Phung Ward<br>
-                                Thai Nguyen Province, Vietnam
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <span>🌐</span>
-                            <div>www.tnu.edu.vn</div>
-                        </div>
+                    <div class="contact-card">
+                        <h4><i class="fas fa-university icon"></i>Leading Organization</h4>
+                        <p><strong>Thai Nguyen University</strong></p>
+                        <p><i class="fas fa-map-marker-alt icon"></i>Tan Thinh, TP. Thai Nguyen</p>
+                        <p><i class="fas fa-globe icon"></i>www.tnu.edu.vn</p>
                     </div>
                 </div>
-                
-                <div class="quote">
-                    <h2>🤝 THANK YOU FOR YOUR ATTENTION!</h2>
-                    <p><em>"Ethnic culture is the root of the nation; digital technology is the bridge to the future."</em></p>
-                    <p><strong>We are open to discussion and happy to answer your questions</strong></p>
-                </div>
-            </div>
-        </div>
 
+                <div class="quote">
+                    <h2><i class="fas fa-heart icon"></i>&nbsp;&nbsp;APPRECIATION!</h2>
+                    <p style="font-style: italic; font-size: 1.2em;">
+                        "Ethnic culture is the root of the nation, digital technology is the bridge to the future"
+                    </p>
+                    <p style="font-weight: bold; margin-top: 20px;">
+                        We are open to discussion and happy to answer your questions
+                    </p>
+                </div>
+            </section>
+
+        </div>
     </div>
+
+    <!-- Reveal.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.min.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: false,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            width: '100%',
+            height: '100%',
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 1.0,
+            
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+
+        // Add custom navigation behavior
+        Reveal.on('slidechanged', event => {
+            // Update progress indicator or perform other actions
+            console.log('Current slide:', event.indexh);
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'f' || event.key === 'F') {
+                // Toggle fullscreen
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    document.documentElement.requestFullscreen();
+                }
+            }
+        });
+    </script>
 </body>
 </html>
