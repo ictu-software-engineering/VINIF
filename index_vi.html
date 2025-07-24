@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự án Bảo tồn Văn hóa La Chí - VINIF</title>
+    
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom styles -->
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #ff6b35;
+            --accent-color: #f7b731;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-color: #00b894;
+            --warning-color: #fdcb6e;
+        }
+
+        .reveal {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .reveal .slides section {
+            text-align: left;
+            padding: 15px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow-y: auto;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-transform: none;
+            font-weight: 600;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+        }
+
+        .reveal h1 {
+            font-size: 1.8em;
+            text-align: center;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .reveal h2 {
+            font-size: 1.4em;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .reveal h3 {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .reveal h4 {
+            font-size: 1.0em;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin: 10px 0 8px 0;
+        }
+
+        .reveal p, .reveal li {
+            font-size: 0.75em;
+            line-height: 1.4;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .reveal ul, .reveal ol {
+            margin-left: 0;
+            padding-left: 15px;
+        }
+
+        .reveal li {
+            margin-bottom: 4px;
+            font-size: 0.75em;
+        }
+
+        /* Header slide styling */
+        .title-slide {
+            text-align: center !important;
+            background: var(--bg-gradient);
+            color: white;
+            padding: 20px !important;
+            justify-content: center;
+        }
+
+        .title-slide h1 {
+            color: white !important;
+            font-size: 2.0em;
+            margin-bottom: 15px;
+            -webkit-text-fill-color: white;
+        }
+
+        .title-slide .subtitle {
+            font-size: 1.0em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.3;
+        }
+
+        .title-slide .project-info {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        /* Logo styling for title slide */
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 0 50px;
+        }
+
+        .logo {
+            height: 80px;
+            max-width: 150px;
+            object-fit: contain;
+            background: rgba(255,255,255,0.9);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo.tnu-logo {
+            height: 90px;
+        }
+
+        .logo.vinif-logo {
+            height: 70px;
+        }
+
+        /* Icon styling */
+        .icon {
+            color: var(--secondary-color);
+            margin-right: 30px;
+            width: 30px;
+            display: inline-block;
+            text-align: center;
+            font-size: 1.0em;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        /* Additional icon spacing for different contexts */
+        .team-card .icon,
+        .feature-box .icon,
+        .timeline-title .icon {
+            margin-right: 12px;
+            width: 20px;
+            font-size: 0.9em;
+        }
+
+        .title-slide .icon {
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        /* Progress bar visualization */
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e6ed;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 10px;
+            transition: width 0.8s ease;
+        }
+
+        /* Chart containers */
+        .chart-container {
+            width: 100%;
+            height: 200px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        /* Pie chart visualization */
+        .pie-chart {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--primary-color) 0deg 105deg,
+                var(--secondary-color) 105deg 160deg,
+                var(--accent-color) 160deg 360deg
+            );
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pie-center {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
+        /* Timeline enhanced */
+        .timeline-enhanced {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .timeline-enhanced::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item-enhanced {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item-enhanced::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--secondary-color);
+        }
+
+        /* Metric cards */
+        .metric-card {
+            background: white;
+            border: 1px solid #e0e6ed;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        /* Visual separator */
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            margin: 20px 0;
+            border-radius: 2px;
+        }
+
+        /* Stats cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .stat-label {
+            font-size: 0.7em;
+            opacity: 0.9;
+        }
+
+        /* Feature boxes */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .feature-box {
+            background: #f8f9fa;
+            padding: 15px 15px 15px 25px;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .feature-box p, .feature-box li {
+            font-size: 0.7em;
+            line-height: 1.3;
+        }
+
+        .feature-box ul {
+            margin: 0;
+            padding-left: 15px;
+        }
+
+        .feature-box ol {
+            margin: 0;
+            padding-left: 20px;
+            counter-reset: item;
+        }
+
+        .feature-box ol li {
+            display: block;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .feature-box ol li:before {
+            content: counter(item) ".";
+            counter-increment: item;
+            position: absolute;
+            left: -20px;
+            top: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
+        /* Progress indicators */
+        .progress-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 10px 0;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .progress-number {
+            background: var(--primary-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 0.8em;
+            flex-shrink: 0;
+        }
+
+        .progress-item div:last-child {
+            font-size: 0.75em;
+            line-height: 1.3;
+        }
+
+        /* Table styling */
+        .reveal table {
+            margin: 15px auto;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.7em;
+        }
+
+        .reveal table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            font-weight: 600;
+            font-size: 0.8em;
+        }
+
+        .reveal table td {
+            padding: 6px 8px;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.7em;
+        }
+
+        .reveal table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* Quote styling */
+        .quote {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+            text-align: center;
+            margin: 15px 0;
+            font-size: 0.8em;
+            line-height: 1.4;
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: var(--accent-color);
+            color: var(--text-dark);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+        .success-box {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .warning-box {
+            background: var(--warning-color);
+            color: var(--text-dark);
+        }
+
+        /* Team member cards */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .team-card {
+            background: white;
+            border: 1px solid #e0e6ed;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .team-name {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.8em;
+            margin-bottom: 4px;
+        }
+
+        .team-title {
+            color: var(--secondary-color);
+            font-size: 0.7em;
+            margin-bottom: 8px;
+        }
+
+        .team-card ul {
+            margin: 0;
+            padding-left: 15px;
+        }
+
+        .team-card li {
+            font-size: 0.65em;
+            margin-bottom: 3px;
+        }
+
+        /* Contact info */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .contact-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+        /* Risk management */
+        .risk-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .risk-section h4 {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .risk-section h3 {
+            font-size: 1.0em;
+            margin-bottom: 10px;
+        }
+
+        .risk-section ul, .risk-section p {
+            font-size: 0.7em;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .timeline-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid var(--primary-color);
+            border-radius: 5px;
+        }
+
+        .timeline-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 0.8em;
+        }
+
+        .timeline-item ul {
+            margin: 5px 0;
+            padding-left: 15px;
+        }
+
+        .timeline-item li {
+            font-size: 0.7em;
+            margin-bottom: 3px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .reveal .slides section {
+                padding: 10px;
+            }
+            
+            .stats-grid,
+            .feature-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .risk-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .reveal h1 {
+                font-size: 1.5em;
+            }
+            
+            .reveal h2 {
+                font-size: 1.2em;
+            }
+            
+            .reveal h3 {
+                font-size: 1.0em;
+            }
+            
+            .reveal p, .reveal li {
+                font-size: 0.7em;
+            }
+            
+            .title-slide .subtitle {
+                font-size: 0.9em;
+            }
+            
+            /* Icon adjustments for mobile */
+            .icon {
+                margin-right: 12px;
+                width: 25px;
+                font-size: 0.9em;
+            }
+            
+            .reveal h1, .reveal h2, .reveal h3 {
+                flex-wrap: wrap;
+                text-align: left;
+            }
+            
+            .reveal h1 {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            /* Logo responsive adjustments */
+            .logo-container {
+                padding: 0 20px;
+                margin: 15px 0;
+            }
+            
+            .logo {
+                height: 60px;
+                max-width: 120px;
+            }
+            
+            .logo.tnu-logo {
+                height: 65px;
+            }
+            
+            .logo.vinif-logo {
+                height: 55px;
+            }
+            
+            /* Feature box adjustments for mobile */
+            .feature-box {
+                padding: 12px 12px 12px 22px;
+            }
+            
+            .feature-box ol {
+                padding-left: 18px;
+            }
+            
+            .feature-box ol li:before {
+                left: -18px;
+                font-size: 0.7em;
+            }
+        }
+
+        /* Additional content overflow fix */
+        .content-wrapper {
+            max-height: 90vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .content-wrapper::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .content-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .content-wrapper::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Title Slide -->
+            <section class="title-slide">
+                <!-- Logo container -->
+                <div class="logo-container">
+                    <img src="TNU_LOGO.png" alt="Logo Đại học Thái Nguyên" class="logo tnu-logo">
+                    <img src="VINIF_LOGO.png" alt="Logo VINIF" class="logo vinif-logo">
+                </div>
+                <h1>THUYẾT MINH DỰ ÁN CHƯƠNG TRÌNH LƯU GIỮ CÁC GIÁ TRỊ VĂN HÓA, LỊCH SỬ</h1>
+                <div class="subtitle">
+                    Ứng dụng công nghệ số trong việc bảo tồn và phát huy các giá trị văn hóa truyền thống của dân tộc La Chí gắn với phát triển du lịch cộng đồng bền vững tại tỉnh Hà Giang
+                </div>
+                <div class="project-info">
+
+                    <p><strong>Tổ chức chủ trì:</strong> Đại học Thái Nguyên</p>
+                    <p><strong>Chủ nhiệm dự án:</strong> TS. Nguyễn Thị Hải Anh</p>
+                </div>
+            </section>
+
+            <!-- Slide 1: Nội dung chính -->
+            <section>
+                <h2><i class="fas fa-list icon"></i>NỘI DUNG THUYẾT TRÌNH</h2>
+
+                <h3><i class="fas fa-book-open icon"></i> Nội dung chính</h3>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4><i class="fas fa-exclamation-triangle icon"></i>Tính cấp thiết</h4>
+                        <p>Phù hợp với định hướng bảo tồn và phát huy các giá trị văn hóa, lịch sử</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-lightbulb icon"></i>Tính sáng tạo</h4>
+                        <p>Tính mới và tính độc đáo của nghiên cứu</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-bullseye icon"></i>Mục tiêu & Phương pháp</h4>
+                        <p>Các mục tiêu, nội dung; phương pháp và kế hoạch thực hiện</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-trophy icon"></i>Kết quả dự kiến</h4>
+                        <p>Kết quả dự kiến và giá trị của các kết quả dự án</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-users icon"></i>Đội ngũ & Năng lực</h4>
+                        <p>Kinh nghiệm và năng lực của chủ nhiệm dự án, các thành viên và tổ chức chủ trì</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-calculator icon"></i>Dự toán</h4>
+                        <p>Phân bổ ngân sách chi tiết và kế hoạch tài chính</p>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                
+                <div class="highlight-box">
+                    <strong>Một dự án tiên phong trong bảo tồn văn hóa các dân tộc thiểu số bằng công nghệ số</strong>
+                </div>  
+            </section>
+
+            <!-- Slide 2: Tổng quan dự án -->
+            <section>
+                <h2><i class="fas fa-bullseye icon"></i>TỔNG QUAN DỰ ÁN</h2>
+
+                <h3><i class="fas fa-target icon"></i>Mục tiêu chính</h3>
+                <div class="highlight-box">
+                    Ứng dụng công nghệ số hiện đại để bảo tồn và phát huy giá trị văn hóa truyền thống của dân tộc La Chí gắn với phát triển du lịch cộng đồng bền vững tại tỉnh Hà Giang
+                </div>
+
+                <h3><i class="fas fa-info-circle icon"></i>Thông tin dự án</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Tháng</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.83</div>
+                        <div class="stat-label">Tỷ VND</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">16 Core</div>
+                        <div class="stat-label">5 cộng tác viên</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Địa điểm</div>
+                        <div class="stat-label">Tỉnh Hà Giang</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: Tính cấp thiết -->
+            <section>
+                <h2><i class="fas fa-exclamation-triangle icon"></i> TÍNH CẤP THIẾT CỦA DỰ ÁN</h2>
+
+                <h3><i class="fas fa-balance-scale icon"></i>Phù hợp chính sách</h3>
+                <div class="feature-grid">
+                    <div class="feature-box success-box">
+                        <h4>Chủ trương Đảng, Nhà nước</h4>
+                        <p>Bảo tồn, phát huy giá trị văn hóa truyền thống và chuyển đổi số</p>
+                    </div>
+                    <div class="feature-box success-box">
+                        <h4>Chính sách địa phương</h4>
+                        <p>Phát triển văn hóa, du lịch và công nghệ tại tỉnh Hà Giang</p>
+                    </div>
+                    <div class="feature-box success-box">
+                        <h4>Định hướng VINIF</h4>
+                        <p>Hướng tới bảo tồn di sản văn hóa và lịch sử</p>
+                    </div>
+                </div>
+
+                <h3><i class="fas fa-exclamation-circle icon"></i>Thách thức cấp bách</h3>
+                <ul>
+                    <li><strong>Dân tộc La Chí:</strong> Cộng đồng thiểu số có tài sản văn hóa phong phú nhưng dễ bị tổn thương</li>
+                    <li><strong>Khoảng trống nghiên cứu:</strong> Thiếu ứng dụng công nghệ số chuyên biệt</li>
+                    <li><strong>Nhu cầu thực tiễn:</strong> Nhu cầu cụ thể từ chính quyền địa phương và cộng đồng</li>
+                </ul>
+              
+            </section>
+
+
+           
+
+
+
+
+            <!-- Slide 4: Tính sáng tạo -->
+            <section>
+                <h2><i class="fas fa-rocket icon"></i>TÍNH SÁNG TẠO VÀ ĐỔI MỚI</h2>
+
+                <h3><i class="fas fa-star icon"></i>Những điểm đột phá</h3>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4>Đầu tiên tại Việt Nam</h4>
+                        <ul>
+                            <li>Xây dựng mô hình ứng dụng công nghệ số để bảo tồn, phát huy giá trị văn hóa truyền thống gắn với phát triển du lịch cộng đồng bền vững cho dân tộc La Chí
+</li>
+                        </ul>
+                    </div>
+                    <div class="feature-box">
+                        <h4>Cách tiếp cận mới</h4>
+                        <ul>
+                            <li>Thiết lập khung phân tích liên ngành để làm sáng tỏ mối liên hệ giữa công nghệ, bảo tồn văn hóa và du lịch cộng đồng trong bối cảnh chuyển đổi số.</li>
+                            <li>Kết nối bảo tồn di sản văn hóa với phát triển sinh kế bền vững thông qua du lịch số và các chiến lược truyền thông nội sinh.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-box">
+                        <h4>Ứng dụng công nghệ tiên tiến</h4>
+                        <ul>
+                            <li>Thiết kế và triển khai không gian văn hóa số tương tác với sự tham gia tích cực của cộng đồng</li>
+                            <li>Bộ sản phẩm số và dữ liệu mở</li>
+                            <li>Mô hình có thể nhân rộng cho các dân tộc thiểu số khác</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Slide 5: Mục tiêu dự án -->
+            <section>
+                <h2><i class="fas fa-bullseye icon"></i>MỤC TIÊU DỰ ÁN</h2>
+
+                <h3><i class="fas fa-list-ol icon"></i>6 Mục tiêu Cụ thể</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <div class="progress-item">
+                            <div class="progress-number">1</div>
+                            <div>
+                                <strong>Cơ sở lý thuyết</strong><br>
+                                Làm rõ cơ sở lý luận, thực tiễn về ứng dụng công nghệ số bảo tồn, phát huy văn hóa La Chí
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-number">2</div>
+                            <div>
+                                <strong>Thực trạng văn hóa</strong><br>
+                                Làm rõ thực trạng văn hóa cần bảo tồn và phát huy, dự đoán xu hướng biến đổi.
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-number">3</div>
+                            <div>
+                                <strong>Đánh giá chính sách</strong><br>
+                                Phân tích hiệu quả các chính sách bảo tồn hiện tại
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="progress-item">
+                            <div class="progress-number">4</div>
+                            <div>
+                                <strong>Định hướng chính sách mới</strong><br>
+                                Đề xuất chính sách ứng dụng công nghệ số để bảo tồn, phát huy giá trị văn hóa truyền thống gắn với du lịch cộng đồng bền vững
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-number">5</div>
+                            <div>
+                                <strong>Mô hình ứng dụng</strong><br>
+                                Xây dựng mô hình ứng dụng dựa trên nhu cầu thực tế của cộng đồng.
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-number">6</div>
+                            <div>
+                                <strong>Chương trình hành động</strong><br>
+                                Thiết kế các hoạt động cụ thể ứng dụng công nghệ số
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                
+                <div class="highlight-box">
+                    <strong>Tất cả 6 mục tiêu đều nhằm tạo ra một hệ sinh thái bảo tồn văn hóa toàn diện</strong>
+                </div>
+            </section>
+
+            <!-- Slide 6: Nội dung hoạt động -->
+            <section>
+                <h2><i class="fas fa-tasks icon"></i>NỘI DUNG HOẠT ĐỘNG</h2>
+
+                <h3><i class="fas fa-list-alt icon"></i>12 Hoạt động chính</h3>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4>Nghiên cứu cơ bản (1-3)</h4>
+                        <ol>
+                            <li>Cơ sở lý thuyết và thực tiễn cho việc ứng dụng công nghệ số</li>
+                            <li>Thực trạng bảo tồn văn hóa La Chí</li>
+                            <li>Đề xuất chính sách và giải pháp</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4>Số hóa và phát triển công nghệ (4-7)</h4>
+                        <ol start="4">
+                            <li>Hội thảo, tọa đàm và khảo sát thực địa</li>
+                            <li>Xây dựng cơ sở dữ liệu đa phương tiện số</li>
+                            <li>Phát triển phần mềm hệ thống thông tin</li>
+                            <li>Biên soạn ấn phẩm số song ngữ (tiếng Việt - tiếng Anh)</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4>Ứng dụng và lan tỏa (8-12)</h4>
+                        <ol start="8">
+                            <li>Tổ chức các lớp tập huấn cộng đồng</li>
+                            <li>Tạo fanpage Facebook và mạng xã hội</li>
+                            <li>Cuộc thi "Sắc màu La Chí"</li>
+                            <li>Truyền thông dự án</li>
+                            <li>Biên soạn sách chuyên khảo</li>
+                            
+                        </ol>
+                    </div>
+                </div>
+            </section>
+                       <!-- Slide 7: Phương pháp nghiên cứu -->
+            <section>
+                <h2><i class="fas fa-microscope icon"></i>PHƯƠNG PHÁP NGHIÊN CỨU</h2>
+
+                <h3><i class="fas fa-project-diagram icon"></i>Tiếp cận Đa ngành và Liên ngành</h3>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4>Nghiên cứu Định tính</h4>
+                        <ul>
+                            <li><strong>Tổng quan Tài liệu</strong> - Phân tích hệ thống các nghiên cứu liên quan</li>
+                            <li><strong>Nghiên cứu Thực địa Dân tộc học</strong> - Khám phá sâu sắc, tại chỗ các thực hành văn hóa La Chí</li>
+                            <li><strong>Tư vấn Chuyên gia</strong> - Thu thập thông tin từ các chuyên gia hàng đầu</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4>Nghiên cứu Định lượng</h4>
+                        <ul>
+                            <li><strong>Khảo sát bằng bảng hỏi</strong> - Thu thập dữ liệu từ cộng đồng La Chí</li>
+                            <li><strong>Phân tích Thống kê</strong> - Xử lý dữ liệu bằng phần mềm chuyên dụng</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4>Phương pháp Tham gia</h4>
+                        <ul>
+                            <li><strong>Đánh giá Nhanh Tham gia (PRA)</strong> - Sự tham gia của cộng đồng trong đánh giá</li>
+                            <li><strong>Phân tích SWOT</strong> - Đánh giá điểm mạnh, điểm yếu, cơ hội và thách thức</li>
+                            <li><strong>Phân tích So sánh</strong> - Đối chiếu với các mô hình tương tự</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+           
+
+
+
+
+            <!-- Slide 8: Kế hoạch thực hiện -->
+            <section>
+                <h2><i class="fas fa-calendar-alt icon"></i>KẾ HOẠCH THỰC HIỆN</h2>
+
+                <h3><i class="fas fa-clock icon"></i>Ba Giai Đoạn Chính</h3>
+
+                <div class="timeline-enhanced">
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-search icon"></i>Giai Đoạn 1: Nền Tảng (Tháng 8/2025 - Tháng 7/2026)
+                        </div>
+                        <strong>Khảo sát và Phát triển Cơ sở Dữ liệu</strong>
+                        <ul>
+                            <li>4 đợt khảo sát thực địa tại Hà Giang và Lào Cai</li>
+                            <li>2 tọa đàm địa phương + 1 hội thảo chuyên đề</li>
+                            <li>2 báo cáo chuyên sâu</li>
+                            <li>Tạo fanpage truyền thông</li>
+                            <li>Ra mắt fanpage truyền thông</li>
+                        </ul>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 33%"></div>
+                        </div>
+                        <small>first 12 months</small>
+                    </div>
+                   
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-laptop icon"></i>&nbsp;Giai Đoạn 2: Số Hóa (Tháng 1/2026 - Tháng 12/2026)
+                        </div>
+                        <strong>Phát Triển Công Nghệ</strong>
+                        <ul>
+                            <li>Xây dựng cơ sở dữ liệu số đa phương tiện</li>
+                            <li>Phát triển phần mềm hệ thống thông tin</li>
+                            <li>Biên soạn ấn phẩm số song ngữ Việt-Anh</li>
+                        </ul>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 44%"></div>
+                        </div>
+                        <small>12 months - 44% of project duration</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 7B: Kế hoạch thực hiện (tiếp) -->
+            <section>
+                <h2><i class="fas fa-calendar-alt icon"></i>IMPLEMENTATION PLAN (cont'd)</h2>
+
+                <div class="timeline-enhanced">
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-share-alt icon"></i>Giai Đoạn 3: Ứng Dụng (Tháng 7/2026 - Tháng 10/2027)
+                        </div>
+                        <strong>Triển Khai và Lan tỏa</strong>
+                        <ul>
+                            <li>Hội thảo cấp vùng và báo cáo chính sách</li>
+                            <li>5 lớp tập huấn cộng đồng</li>
+                            <li>Cuộc thi sáng tạo "La Chí - Kể chuyện bản mình"</li>
+                            <li>Truyền thông xuyên suốt</li>
+                            
+                        </ul>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 23%"></div>
+                        </div>
+                        <small>6 tháng cuối - 23% thời gian dự án</small>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="stats-grid">
+                    <div class="metric-card">
+                        <span class="metric-value">24</span>
+                        <div class="metric-label">Tháng</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">3</span>
+                        <div class="metric-label">Giai Đoạn</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">13</span>
+                        <div class="metric-label">Sản phẩm </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 9: Kết quả dự kiến -->
+            <section>
+                <h2><i class="fas fa-trophy icon"></i>KẾT QUẢ DỰ KIẾN</h2>
+
+                <h3><i class="fas fa-gift icon"></i>13 Sản Phẩm Cụ Thể</h3>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4><i class="fas fa-book icon"></i>&nbsp;Sản phẩm nghiên cứu</h4>
+                        <ol>
+                            <li>Báo cáo tổng hợp dự án - Tổng hợp toàn bộ kết quả nghiên cứu</li>
+                            <li>Báo cáo kiến nghị chính sách - Đề xuất chính sách cụ thể</li>
+                            <li>3 bài báo khoa học - Công bố trên tạp chí uy tín</li>
+                            <li>Sách chuyên khảo - "Ứng dụng công nghệ số trong bảo tồn văn hóa La Chí"</li>
+                        
+                        </ol>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-laptop-code icon"></i>&nbsp;&nbsp;Sản phẩm công nghệ</h4>
+                        <ol start="4">
+                            <li>Cơ sở dữ liệu số hóa - Kho dữ liệu văn hóa La Chí đa phương tiện</li>
+                            <li>Phần mềm hệ thống - Ứng dụng quản lý thông tin văn hóa-du lịch</li>
+                            <li>E-book song ngữ - Ấn phẩm số Việt-Anh về văn hóa La Chí</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-bullhorn icon"></i>Sản phẩm Đào tạo & Truyền thông (7–12)</h4>
+                        <ol start="7">
+                            <li>Fanpage Facebook - Nền tảng truyền thông chính</li>
+                            <li>Kho nội dung số cộng đồng - Video, hình ảnh, câu chuyện</li>
+                            <li>2 cuộc thi văn hóa - "Văn hóa La Chí qua lăng kính trẻ" & "Người gìn giữ hồn La Chí"</li>
+                            <li>5 lớp tập huấn - Đào tạo kỹ năng cho cộng đồng</li>
+                            <li>14 tin bài truyền thông - Trên các nền tảng báo chí</li>
+                            <li>Sự kiện tổng kết - Truyền thông kết thúc dự án</li>
+                                           
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: Đội ngũ thực hiện - Tổ chức -->
+            <section>
+                <h2><i class="fas fa-university icon"></i>ĐỘI NGŨ THỰC HIỆN - TỔ CHỨC CHỦ TRÌ</h2>
+
+                <h3><i class="fas fa-medal icon"></i>Đại học Thái Nguyên - Năng lực nổi bật</h3>
+
+                <div class="stats-grid">
+                    <div class="metric-card">
+                        <span class="metric-value">1994</span>
+                        <div class="metric-label">Thành lập</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">3,691</span>
+                        <div class="metric-label">CBGV</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">921</span>
+                        <div class="metric-label">Tiến sĩ</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">100%</span>
+                        <div class="metric-label">Được kiểm định</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4><i class="fas fa-chart-line icon"></i>&nbsp; Năng lực Nghiên cứu</h4>
+                        <ul>
+                            <li>123 dự án cấp quốc gia (2014-2023)</li>
+                            <li>247 dự án cấp bộ/tỉnh</li>
+                            <li>144 đối tác quốc tế</li>
+                            <li>Giải thưởng Kovalevskaia (2011, 2014, 2019)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-trophy icon"></i>&nbsp;Kinh nghiệm phù hợp</h4>
+                        <ul>
+                            <li><strong>Nghiên cứu Dân tộc thiểu số:</strong> Các dự án ĐTĐL.XH-01/18, ĐTĐL.XH-02/18</li>
+
+                            <li><strong>Công nghệ Giáo dục:</strong> Phần mềm học tiếng Việt cho dân tộc thiểu số</li>
+                            <li><strong>Địa bàn Hà Giang:</strong> NVQG-2019/ĐT.12 và nhiều đề tài khác</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10B: Kinh nghiệm phù hợp -->
+            <section>
+                <h2><i class="fas fa-university icon"></i>KINH NGHIỆM PHÙ HỢP CHO DỰ ÁN</h2>
+
+
+                <div class="feature-grid">
+                    <div class="feature-box success-box">
+                        <h4><i class="fas fa-users icon"></i>&nbsp;&nbsp;Ethnic Minorities</h4>
+                        <ul>
+                            <li>ĐTĐL.XH-01/18: Bảo tồn ngôn ngữ dân tộc thiểu số</li>
+                            <li>ĐTĐL.XH-02/18: Giao tiếp bằng ngôn ngữ dân tộc thiểu số</li>
+                            <li>Phần mềm dạy tiếng Việt cho dân tộc thiểu số ở Tây Bắc</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box success-box">
+                        <h4><i class="fas fa-map-marker-alt icon"></i>Kinh nghiệm tại Hà Giang</h4>
+                        <ul>
+                            <li>NVQG-2019/ĐT.12: Khai thác nguồn gen mận đỏ</li>
+                            <li>Bảo tồn nguồn gen cây thuốc quý</li>
+                            <li>Hiểu biết sâu sắc về điều kiện sinh thái và xã hội địa phương</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box success-box">
+                        <h4><i class="fas fa-microchip icon"></i>&nbsp;Công nghệ Văn hóa Số</h4>
+                        <ul>
+                            <li>Nhiều dự án tích hợp công nghệ - ngôn ngữ - văn hóa</li>
+                            <li>Nền tảng số cho bảo tồn văn hóa</li>
+                            <li>Kinh nghiệm triển khai công nghệ cho cộng đồng</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="highlight-box">
+                    <strong>Đặt nền tảng vững chắc cho việc triển khai nền tảng số nhằm bảo tồn văn hóa La Chí gắn với du lịch cộng đồng</strong>
+                </div>
+            </section>
+
+            <!-- Slide 10: Đội ngũ thành viên -->
+            <section>
+                <h2><i class="fas fa-users icon"></i>&nbsp;&nbsp; ĐỘI NGŨ THÀNH VIÊN – CÁC THÀNH VIÊN CỐT LÕI VÀ CỘNG TÁC VIÊN</h2>
+
+                <h3><i class="fas fa-user-tie icon"></i>16 Chuyên gia + 5 Nghệ nhân La Chí</h3>
+
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-name">TS. Nguyễn Thị Hải Anh</div>
+                        <div class="team-title">Chủ nhiệm dự án</div>
+                        <ul>
+                            <li>19 bài báo khoa học (2 bài Scopus Q1, Q3)</li>
+                            <li>Giải Nhì Hội Văn nghệ Dân gian VN (2020)</li>
+                            <li>6 dự án quốc tế về công nghệ số và cộng đồng yếu thế</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">ThS. Trương Thị Phương</div>
+                        <div class="team-title">Giảng viên Phát triển Truyền thông</div>
+                        <ul>
+                            <li>Nghiên cứu về infographics, truyền thông số, phát triển bền vững</li>
+                            <li>Am hiểu truyền thông số hóa trong bảo tồn văn hóa và du lịch cộng đồng</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">PGS.TS. Nguyễn Việt Hùng</div>
+                        <div class="team-title">Chuyên gia sử thi Tây Nguyên</div>
+                        <ul>
+                            <li>30+ bài báo khoa học, 9 sách chuyên khảo</li>
+                            <li>Chủ trì đề tài cấp nhà nước</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">TS. Trần Hữu Sơn</div>
+                        <div class="team-title">Chuyên gia văn hóa dân tộc</div>
+                        <ul>
+                            <li>Nguyên Giám đốc Sở Văn hóa, Thể thao và Du lịch Lào Cai</li>
+                            <li>35+ bài báo khoa học, 18 sách về văn hóa La Chí, Dao, Mông</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">ThS. NCS Trần Xuân Hùng</div>
+                        <div class="team-title">Biên tập viên Tạp chí Khoa học Xã hội và Nhân văn</div>
+                        <ul>
+                            <li>20 bài báo, 6 dự án ở tất cả các cấp</li>
+                            <li>Có bài báo được chỉ mục trong ESCI</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">ThS. Nguyễn Văn Sự</div>
+                        <div class="team-title">Giám đốc Trung tâm Phần mềm</div>
+                        <ul>
+                            <li>Chủ nhiệm/thành viên 9 dự án CNTT</li>
+                            <li>Kinh nghiệm phát triển phần mềm quản lý thông tin</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10B: Đội ngũ thành viên (Phần 2) -->
+            <section>
+                <h2><i class="fas fa-users icon"></i>&nbsp;&nbsp;ĐỘI NGŨ THÀNH VIÊN – CÁC THÀNH VIÊN CỐT LÕI VÀ CỘNG TÁC VIÊN</h2>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-name">ThS. Đỗ Thị Phượng</div>
+                        <div class="team-title">Chuyên gia Báo chí số</div>
+                        <ul>
+                            <li>Chuyên về đồ họa máy tính, truyền thông trực tuyến, thực tại ảo</li>
+                            <li>Phù hợp với các giải pháp truyền thông – số hóa văn hóa</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">CV. Nguyễn Ngọc Thanh</div>
+                        <div class="team-title">Chuyên gia Văn hóa</div>
+                        <ul>
+                            <li>4 sách, chủ trì 1 đề tài cấp tỉnh, tham gia 5 đề án văn hóa</li>
+                            <li>Tác phẩm đạt bằng bảo hộ SHTT và Giải 3A Văn nghệ Dân gian VN</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">TS. Nguyễn Thế Vịnh</div>
+                        <div class="team-title">Trưởng Bộ môn Công nghệ Phần mềm</div>
+                        <ul>
+                            <li>45 bài báo khoa học quốc tế (2018–2025)</li>
+                            <li>Chủ nhiệm/thành viên 4 đề tài/dự án cấp cơ sở và Bộ</li>
+                            <li>Chuyên về số hóa văn hóa, phần mềm trực quan, thực tế ảo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">TS. Phạm Quốc Tuấn</div>
+                        <div class="team-title">Chuyên gia Văn học và Xuất bản</div>
+                        <ul>
+                            <li>Chủ nhiệm/thành viên 4 đề tài các cấp, 9 sách chuyên khảo</li>
+                            <li>Chuyên về văn học thiểu số, văn hóa cách mạng và xuất bản số</li>
+                           
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">TS. Tạ Thị Thảo</div>
+                        <div class="team-title">Chuyên gia Chính sách Văn hóa</div>
+                        <ul>
+                            <li>Nghiên cứu chính sách bảo tồn văn hóa dân tộc thiểu số</li>
+                            <li>Chủ trì nghiên cứu về dịch vụ công, mô hình sinh kế văn hóa</li>
+                           
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">ThS. Nguyễn Viết Tuân</div>
+                        <div class="team-title">Cán bộ quản lý văn hóa địa phương</div>
+                        <ul>
+                            <li>Gần 20 năm kinh nghiệm quản lý văn hóa cấp huyện</li>
+                            <li>Từng là Giám đốc Trung tâm Văn hóa – Du lịch Hoàng Su Phì</li>
+                            <li>Chuyên về du lịch cộng đồng gắn với văn hóa DTTS</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10C: Đội ngũ thành viên (Phần 3) -->
+            <section>
+                <h2><i class="fas fa-users icon"></i>ĐỘI NGŨ THÀNH VIÊN – CÁC THÀNH VIÊN CỐT LÕI VÀ CỘNG TÁC VIÊN</h2>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-name">Ông Hoàng Dự</div>
+                        <div class="team-title">Tổng Biên tập Tạp chí Văn học và Nghệ thuật</div>
+                        <ul>
+                            <li>Nhà văn, nhà báo với kinh nghiệm truyền thông văn hóa</li>
+                            <li>Chuyên về phim tài liệu văn hóa và hội thảo di sản</li>
+                            <li>Đóng góp trong quảng bá và số hóa văn hóa dân tộc</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">TS. Lèng Thị Lan</div>
+                        <div class="team-title">Trưởng Khoa Khoa học Cơ bản</div>
+                        <ul>
+                            <li>8 bài báo khoa học và 1 sách chuyên khảo về văn học dân tộc thiểu số</li>
+                            <li>Thành viên 3 đề tài/dự án về di cư, chuyển đổi số, du lịch cộng đồng</li>
+                            <li>Kinh nghiệm xã hội hóa giáo dục, bình đẳng giới, kinh tế hộ DTTS</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">Ông Trần Chí Nhân</div>
+                        <div class="team-title">Chuyên gia Quản lý Văn hóa</div>
+                        <ul>
+                            <li>30 năm kinh nghiệm, chủ trì nhiều đề án văn hóa La Chí và Hà Giang</li>
+                            <li>Đóng góp quan trọng vào Địa chí tỉnh Hà Giang</li>
+                            <li>Tác giả hàng chục sách lịch sử truyền thống xã hội</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">PGS.TS. Nguyễn Thị Minh Thu</div>
+                        <div class="team-title">Chuyên gia Văn học Dân gian</div>
+                        <ul>
+                            <li>Chuyên gia văn học dân gian -- dân tộc thiểu số</li>
+                            <li>Tham gia nhiều đề tài cấp Bộ</li>
+                            <li>Tác giả nghiên cứu truyền thống tự sự, thần thoại, tín ngưỡng DTTS</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-name">5 Nghệ nhân La Chí</div>
+                        <div class="team-title">Người thực hành di sản sống</div>
+                        <ul>
+                            <li>Cung cấp tri thức bản địa xác thực</li>
+                            <li>Đại diện tiếng nói cộng đồng 1 đại diện chính quyền địa phương</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="team-card highlight-card">
+                        <div class="team-name">Cơ chế làm việc</div>
+                        <div class="team-title">Phối hợp hiệu quả</div>
+                        <ul>
+                            <li>Phong cách làm việc cởi mở, minh bạch</li>
+                            <li>Họp nhóm định kỳ</li>
+                            <li>Phân công nhiệm vụ rõ ràng</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 11: Giá trị và tác động -->
+            <section>
+                <h2><i class="fas fa-star icon"></i>&nbsp;GIÁ TRỊ VÀ TÁC ĐỘNG DỰ ÁN</h2>
+                <h3><i class="fas fa-chart-line icon"></i>Tác động Đa chiều</h3>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4><i class="fas fa-flask icon"></i>&nbsp;Về mặt khoa học</h4>
+                        <ul>
+                            <li>Đóng góp lý thuyết mới về bảo tồn văn hóa số</li>
+                            <li>Mô hình tiên phong có thể nhân rộng</li>
+                            <li>Công bố quốc tế nâng cao uy tín khoa học Việt Nam</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-users icon"></i>&nbsp;&nbsp;Về mặt xã hội
+</h4>
+                        <ul>
+                            <li><strong>Bảo tồn di sản</strong> của dân tộc La Chí cho các thế hệ tương lai</li>
+                            <li><strong>Nâng cao nhận thức cộng đồng</strong> về giá trị văn hóa</li>
+                            <li><strong>Tăng cường bản sắc văn hóa dân tộc</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-coins icon"></i>&nbsp;Về mặt kinh tế</h4>
+                        <ul>
+                            <li><strong>Phát triển du lịch cộng đồng bền vững</strong></li>
+                            <li><strong>Đem lại sinh kế mới</strong> cho người dân tộc La Chí</li>
+                            <li><strong>Thu hút đầu tư</strong> vào các vùng đồng bào dân tộc thiểu số</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h4><i class="fas fa-microchip icon"></i>&nbsp;Về mặt công nghệ</h4>
+                        <ul>
+                            <li><strong>Số hóa di sản</strong> bằng công nghệ tiên tiến</li>
+                            <li><strong>Xây dựng nền tảng</strong> cho công nghệ bảo tồn</li>
+                            <li><strong>Chuyển giao công nghệ</strong> cho cộng đồng</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 12: Dự toán -->
+            <section>
+                <h2><i class="fas fa-calculator icon"></i>DỰ TOÁN VÀ PHÂN BỔ KINH PHÍ</h2>
+
+                <div class="highlight-box">
+                    <h3><i class="fas fa-money-bill-wave icon"></i>Tổng dự toán: 2,831,859,282 VNĐ</h3>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                    <!-- Cost structure -->
+                    <div>
+                        <h3><i class="fas fa-chart-pie icon"></i>Phân bổ chi phí</h3>
+
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div class="pie-chart" style="width: 120px; height: 120px;">
+                                <div class="pie-center" style="font-size: 0.8em;">100%</div>
+                            </div>
+                            <div style="flex: 1; font-size: 0.9em;">
+                                <div style="margin-bottom: 10px;">
+                                    <div style="display: flex; align-items: center; margin-bottom: 3px;">
+                                        <div style="width: 15px; height: 15px; background: var(--primary-color); margin-right: 8px;"></div>
+                                        <strong> Chi lao động trực tiếp (29.27%)</strong>
+                                    </div>
+                                    <div style="font-size: 0.8em; color: var(--text-light);">828.800.000 VNĐ</div>
+                                </div>
+                                
+                                <div style="margin-bottom: 10px;">
+                                    <div style="display: flex; align-items: center; margin-bottom: 3px;">
+                                        <div style="width: 15px; height: 15px; background: var(--secondary-color); margin-right: 8px;"></div>
+                                        <strong>Thiết bị, máy móc và vật liệu (15.13%)</strong>
+                                    </div>
+                                    <div style="font-size: 0.8em; color: var(--text-light);">428.498.840 VNĐ</div>
+                                </div>
+                                
+                                <div>
+                                    <div style="display: flex; align-items: center; margin-bottom: 3px;">
+                                        <div style="width: 15px; height: 15px; background: var(--accent-color); margin-right: 8px;"></div>
+                                        <strong>Chi phí khác (55.60%)</strong>
+                                    </div>
+                                    <div style="font-size: 0.8em; color: var(--text-light);">1.574.560.442 VNĐ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phân bổ theo tiến độ -->
+                    <div>
+                        <h3><i class="fas fa-clock icon"></i>Phân bổ theo tiến độ</h3>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="min-width: 60px;">
+                                    <div style="font-weight: bold; color: var(--primary-color);">Lần 1</div>
+                                    <div style="font-size: 0.8em;">20.73%</div>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="margin-bottom: 5px;"><strong>587 tỷ VNĐ</strong> - Khởi động dự án</div>
+                                    <div class="progress-bar" style="height: 8px;">
+                                        <div class="progress-fill" style="width: 21%; height: 100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="min-width: 60px;">
+                                    <div style="font-weight: bold; color: var(--secondary-color);">Lần 2</div>
+                                    <div style="font-size: 0.8em;">55.82%</div>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="margin-bottom: 5px;"><strong>1,580 tỷ VNĐ</strong> - Triển khai chính</div>
+                                    <div class="progress-bar" style="height: 8px;">
+                                        <div class="progress-fill" style="width: 56%; height: 100%; background: var(--secondary-color);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="min-width: 60px;">
+                                    <div style="font-weight: bold; color: var(--accent-color);">Lần 3</div>
+                                    <div style="font-size: 0.8em;">23.45%</div>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="margin-bottom: 5px;"><strong>664 tỷ VNĐ</strong> - Hoàn thành</div>
+                                    <div class="progress-bar" style="height: 8px;">
+                                        <div class="progress-fill" style="width: 23%; height: 100%; background: var(--accent-color);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="highlight-box success-box">
+                    <strong>Hiệu quả đầu tư: Chi phí hợp lý cho 13 sản phẩm cụ thể có tác động lâu dài</strong>
+                </div>
+            </section>
+
+            <!-- Slide 13: Tính khả thi -->
+            <section>
+                <h2><i class="fas fa-check-circle icon"></i>TÍNH KHẢ THI VÀ RỦI RO</h2>
+
+                <div class="risk-grid">
+                    <div class="risk-section">
+                        <h3><i class="fas fa-thumbs-up icon"></i>Các yếu tố thành công</h3>
+
+                        <h4>Năng lực thực hiện</h4>
+                        <ul>
+                            <li>Đội ngũ chuyên gia hàng đầu với nhiều kinh nghiệm</li>
+                            <li>Cơ sở tiếp nhận uy tín với thành tích nghiên cứu vững chắc</li>
+                            <li>Hỗ trợ từ các cơ quan chính quyền địa phương</li>
+                        </ul>
+
+                        <h4>Cơ sở thực tiễn</h4>
+                        <ul>
+                            <li>Nhu cầu cấp thiết từ cộng đồng La Chí</li>
+                            <li>Chính sách của nhà nước ưu tiên phát triển dân tộc và văn hóa</li>
+                            <li>Sự tham gia tích cực của các nghệ nhân địa phương</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="risk-section">
+                        <h3><i class="fas fa-exclamation-triangle icon"></i>Quản lý rủi ro</h3>
+
+                        <h4>Rủi ro kỹ thuật</h4>
+                        <p><strong>Biện pháp giảm thiểu:</strong> Tư vấn chuyên gia và lập kế hoạch dự phòng</p>
+
+                        <h4>Rủi ro thời gian</h4>
+                        <p><strong>Biện pháp giảm thiểu:</strong> Giám sát tiến độ chặt chẽ và thực hiện các nhiệm vụ song song</p>
+
+                        <h4>Rủi ro cộng đồng</h4>
+                        <p><strong>Biện pháp giảm thiểu:</strong> Gắn kết chặt chẽ với các nghệ nhân và lãnh đạo địa phương</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 15: Roadmap -->
+            <section>
+                <h2><i class="fas fa-route icon"></i>ROADMAP VÀ TẦM NHÌN</h2>
+
+                <h3><i class="fas fa-rocket icon"></i>Lộ trình phát triển dài hạn</h3>
+
+                <div class="timeline-enhanced">
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-play-circle icon"></i>Ngắn hạn (2025-2027) - Dự án hiện tại
+                        </div>
+                        <ul>
+                            <li>Hoàn thành 13 sản phẩm đề ra</li>
+                            <li>Tạo mô hình thí điểm thành công</li>
+                            <li>Công bố kết quả nghiên cứu</li>
+                            
+                        </ul>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <small>In Progress - 100% Commitment</small>
+                    </div>
+                    
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-expand-arrows-alt icon"></i>Trung hạn (2028-2030) - Mở rộng
+                        </div>
+                        <ul>
+                            <li>Áp dụng mô hình cho các dân tộc thiểu số khác</li>
+                            <li>Mở rộng ra các tỉnh miền núi phía Bắc</li>
+                            <li>Phát triển nền tảng công nghệ toàn diện</li>
+                        </ul>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                        <small>Scaling Plan - 60% Feasibility</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 15B: Long-term Vision -->
+            <section>
+                <h2><i class="fas fa-route icon"></i>TẦM NHÌN DÀI HẠN</h2>
+
+                <div class="timeline-enhanced">
+                    <div class="timeline-item-enhanced">
+                        <div class="timeline-title">
+                            <i class="fas fa-globe icon"></i>Dài hạn (2031+) - Bền vững và Phát triển
+                        </div>
+                        <ul>
+                            <li>Trở thành trung tâm bảo tồn văn hóa số khu vực</li>
+                            <li>Hợp tác quốc tế về bảo tồn di sản</li>
+                            <li>Đóng góp vào mục tiêu phát triển bền vững</li>
+                      
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%"></div>
+                        </div>
+                        <small>Long-term Vision - 40% Success Forecast</small>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="quote">
+                    <h3><i class="fas fa-eye icon"></i>Vision 2035</h3>
+"Trở thành mô hình tiên phong trong ứng dụng công nghệ số để bảo tồn và phát huy giá trị văn hóa dân tộc thiểu số, góp phần xây dựng Việt Nam số và phát triển bền vững"
+
+                </div>
+
+                <div class="stats-grid">
+                    <div class="metric-card">
+                        <span class="metric-value">10+</span>
+                        <div class="metric-label">Dân tộc thiểu số được hỗ trợ</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">50+</span>
+                        <div class="metric-label">Đối tác quốc tế</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">100K+</span>
+                        <div class="metric-label">Người được phục vụ</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 15: Conclusion -->
+            <section>
+                <h2><i class="fas fa-flag-checkered icon"></i>KẾT LUẬN VÀ ĐỀ XUẤT</h2>
+
+                <h3><i class="fas fa-star icon"></i>Điểm nổi bật của Dự án</h3>
+
+                <div class="feature-grid">
+                    <div class="feature-box success-box">
+                        <h4>Tính cấp thiết cao</h4>
+                        <ul>
+                            <li>Giải quyết nhu cầu cấp thiết trong việc bảo tồn di sản văn hóa La Chí – một cộng đồng dân tộc dễ bị tổn thương</li>
+                            <li>Hoàn toàn phù hợp với định hướng chính sách quốc gia</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box success-box">
+                        <h4>Đổi mới sáng tạo nổi bật</h4>
+                        <ul>
+                            <li>Đề xuất mô hình bảo tồn di sản số chuyên biệt đầu tiên tại Việt Nam</li>
+                            <li>Tích hợp liền mạch công nghệ hiện đại và tri thức bản địa</li>
+
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box success-box">
+                        <h4>Tính khả thi cao</h4>
+                        <ul>
+                            <li>Chuyên gia hàng đầu với kinh nghiệm phong phú</li>
+                            <li>Tổ chức thực hiện uy tín với thành tích xuất sắc</li>
+                            <li>Sự tham gia tích cực của cộng đồng địa phương</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box success-box">
+                        <h4>Tác động rộng</h4>
+                        <ul>
+                            <li>Đóng góp khoa học có giá trị quốc tế</li>
+                            <li>Lợi ích trực tiếp cho cộng đồng La Chí</li>
+                            <li>Mô hình có thể mở rộng áp dụng trên toàn quốc</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3><i class="fas fa-handshake icon"></i>Đề xuất hỗ trợ từ VINIF</h3>
+                    <strong>"Hãy cùng chúng tôi viết nên một câu chuyện thành công về việc bảo tồn văn hóa dân tộc thiểu số trong kỷ nguyên số"</strong>
+                </div>
+            </section>
+
+            <!-- Slide 16: Appreciation -->
+            <section class="title-slide">
+                <h2><i class="fas fa-phone icon"></i>&nbsp;&nbsp;THÔNG TIN LIÊN HỆ</h2>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h4><i class="fas fa-user icon"></i>Chủ nhiệm Dự án</h4>
+                        <p><strong>Dr. Nguyễn Thị Hải Anh</strong></p>
+                        <p><i class="fas fa-envelope icon"></i>haianh@tnu.edu.vn</p>
+                        <p><i class="fas fa-phone icon"></i>+84 97 8662 484</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h4><i class="fas fa-university icon"></i>Tổ chức chủ trì</h4>
+                        <p><strong>Đại học Thái Nguyên</strong></p>
+                        <p><i class="fas fa-map-marker-alt icon"></i>Tan Thinh, TP. Thai Nguyen</p>
+                        <p><i class="fas fa-globe icon"></i>www.tnu.edu.vn</p>
+                    </div>
+                </div>
+
+                <div class="quote">
+                    <h2><i class="fas fa-heart icon"></i>&nbsp;&nbsp;TRÂN TRỌNG!</h2>
+                    <p style="font-style: italic; font-size: 1.2em;">
+                        "Văn hóa dân tộc là gốc rễ của dân tộc, công nghệ số là cầu nối đến tương lai"
+                    </p>
+                    <p style="font-weight: bold; margin-top: 20px;">
+                        Chúng tôi luôn sẵn sàng thảo luận và vui lòng trả lời các câu hỏi của bạn
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.min.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: false,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            width: '100%',
+            height: '100%',
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 1.0,
+            
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+
+        // Add custom navigation behavior
+        Reveal.on('slidechanged', event => {
+            // Update progress indicator or perform other actions
+            console.log('Current slide:', event.indexh);
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'f' || event.key === 'F') {
+                // Toggle fullscreen
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    document.documentElement.requestFullscreen();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
